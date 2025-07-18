@@ -4,13 +4,12 @@ import { useState, useEffect, useCallback } from 'react'
 import RightSidebarControls, { type WidthMode } from './RightSidebarControls'
 import { type FontMode } from '../primitives/DisplayOptions'
 import { MobileNav, MobileHeader } from './MobileNav'
-import NavBar from './NavBar'
 
-interface AppLayoutProps {
+interface SidebarLayoutProps {
   children: React.ReactNode
 }
 
-export default function AppLayout({ children }: AppLayoutProps) {
+export default function SidebarLayout({ children }: SidebarLayoutProps) {
   // Width control state with persistence
   const [contentWidth, setContentWidth] = useState<WidthMode>('narrow')
   
@@ -52,6 +51,9 @@ export default function AppLayout({ children }: AppLayoutProps) {
 
   // Update font family based on font mode
   useEffect(() => {
+    // Debug: log the font change
+    console.log('Font changed to:', font)
+    
     // Remove all font classes first
     document.body.classList.remove('font-geist', 'font-inter', 'font-playfair', 'font-spacemono')
     
@@ -73,6 +75,12 @@ export default function AppLayout({ children }: AppLayoutProps) {
         // Use system font by not adding any class
         break
     }
+    
+    // Debug: check computed styles
+    setTimeout(() => {
+      const computedStyle = window.getComputedStyle(document.body)
+      console.log('Body font-family:', computedStyle.fontFamily)
+    }, 100)
   }, [font])
 
   // Stable callback for width changes with persistence
@@ -84,6 +92,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
   // Stable callback for font changes with persistence
   const handleFontChange = useCallback((newFont: FontMode) => {
     setFont(newFont)
+    localStorage.setItem('font', newFont)
   }, [])
 
   return (
@@ -92,8 +101,8 @@ export default function AppLayout({ children }: AppLayoutProps) {
         {/* Mobile Header */}
         <MobileHeader />
 
-        {/* 3-Column CSS Grid Layout: Left Sidebar - Main Content - Right Sidebar */}
-        <div className="grid grid-cols-[var(--sidebar-left-width)_1fr_var(--sidebar-right-width)] min-h-[calc(100vh-var(--mobile-header-height,0px))]">
+        {/* 4-Column CSS Grid Layout: Left Sidebar - Main Content - Side Content - Right Sidebar */}
+        <div className="grid grid-cols-[var(--sidebar-left-width)_2fr_1fr_var(--sidebar-right-width)] min-h-[calc(100vh-var(--mobile-header-height,0px))]">
           {/* Left Sidebar - Navigation */}
           <div className="bg-[var(--color-surface)] border-r border-[var(--color-border)] border-2 border-dashed border-red-300">
           </div>
@@ -102,6 +111,10 @@ export default function AppLayout({ children }: AppLayoutProps) {
           <main className="page-transition border-2 border-dashed border-blue-300">
             {children}
           </main>
+
+          {/* Side Content - Secondary content */}
+          <div className="bg-[var(--color-surface)] border-l border-[var(--color-border)] border-2 border-dashed border-green-300">
+          </div>
 
           {/* Right Sidebar - Controls Panel */}
           <RightSidebarControls 

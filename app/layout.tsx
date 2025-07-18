@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Inter, Playfair_Display, Space_Mono } from "next/fon
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/react';
 import { ThemeProvider } from "../components/ui/providers/ThemeProvider";
+import NavBar from "../components/ui/layout/NavBar";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -47,6 +48,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${playfair.variable} ${spaceMono.variable} antialiased`}
       >
         <ThemeProvider>
+          <NavBar />
           {children}
         </ThemeProvider>
         <SpeedInsights />
