@@ -1,4 +1,5 @@
 import { Button } from '../primitives/Button'
+import Link from 'next/link'
 
 export default function NavBar() {
   return (
@@ -11,18 +12,26 @@ export default function NavBar() {
         
         {/* Navigation Buttons */}
         <div className="flex items-center space-x-4 absolute" style={{left: 'calc(50% + 200px)'}}>
-          <Button variant="secondary" size="sm">
-            about
-          </Button>
-          <Button variant="secondary" size="sm">
-            writing
-          </Button>
-          <Button variant="secondary" size="sm">
-            reading
-          </Button>
-          <Button variant="secondary" size="sm">
-            projects
-          </Button>
+          <Link href="/about">
+            <Button variant="secondary" size="sm">
+              about
+            </Button>
+          </Link>
+          <Link href="/writing">
+            <Button variant="secondary" size="sm">
+              writing
+            </Button>
+          </Link>
+          <Link href="/reading">
+            <Button variant="secondary" size="sm">
+              reading
+            </Button>
+          </Link>
+          <Link href="/projects">
+            <Button variant="secondary" size="sm">
+              projects
+            </Button>
+          </Link>
         </div>
       </div>
     </nav>
