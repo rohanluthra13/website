@@ -6,7 +6,7 @@ export default function NavBar() {
     <nav className="w-full border-b border-[var(--color-border)] bg-[var(--color-surface)] px-6 py-4">
       <div className="flex items-center justify-between">
         {/* Header/Label */}
-        <div className="text-lg font-medium text-[var(--color-text)]">
+        <div className="text-lg font-medium text-[var(--color-text)] ml-96">
           rohanluthra
         </div>
         
