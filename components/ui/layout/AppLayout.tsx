@@ -12,7 +12,7 @@ interface AppLayoutProps {
 
 export default function AppLayout({ children }: AppLayoutProps) {
   // Width control state with persistence
-  const [contentWidth, setContentWidth] = useState<WidthMode>('narrow')
+  const [contentWidth, setContentWidth] = useState<WidthMode>('narrower')
   
   // Font control state with persistence
   const [font, setFont] = useState<FontMode>('geist')
@@ -20,7 +20,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
   // Load persisted preferences on mount
   useEffect(() => {
     const savedWidth = localStorage.getItem('contentWidth') as WidthMode
-    if (savedWidth && ['narrow', 'normal', 'wide'].includes(savedWidth)) {
+    if (savedWidth && ['narrower', 'narrow', 'normal', 'wide'].includes(savedWidth)) {
       setContentWidth(savedWidth)
     }
     
@@ -35,6 +35,10 @@ export default function AppLayout({ children }: AppLayoutProps) {
     const root = document.documentElement
     
     switch (contentWidth) {
+      case 'narrower': // Even narrower content area
+        root.style.setProperty('--sidebar-left-width', 'clamp(60px, 25vw, 500px)')
+        root.style.setProperty('--sidebar-right-width', 'clamp(60px, 25vw, 500px)')
+        break
       case 'narrow': // Current behavior (default)
         root.style.setProperty('--sidebar-left-width', 'clamp(60px, 20vw, 400px)')
         root.style.setProperty('--sidebar-right-width', 'clamp(60px, 20vw, 400px)')

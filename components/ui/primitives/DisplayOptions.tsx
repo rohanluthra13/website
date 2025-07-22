@@ -30,7 +30,7 @@ const DisplayOptions = memo(function DisplayOptions({
   onClose
 }: DisplayOptionsProps) {
   const [showFontPicker, setShowFontPicker] = useState(false)
-  const widthModes: WidthMode[] = ['narrow', 'normal', 'wide']
+  const widthModes: WidthMode[] = ['narrower', 'narrow', 'normal', 'wide']
   const currentIndex = widthModes.indexOf(contentWidth)
   
   const canNarrow = currentIndex > 0

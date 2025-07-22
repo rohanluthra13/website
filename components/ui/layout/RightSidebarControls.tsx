@@ -6,7 +6,7 @@ import { useTheme } from '../providers/ThemeProvider'
 import IconMenuButton from '../primitives/IconMenuButton'
 import DisplayOptions, { type FontMode } from '../primitives/DisplayOptions'
 
-export type WidthMode = 'narrow' | 'normal' | 'wide'
+export type WidthMode = 'narrower' | 'narrow' | 'normal' | 'wide'
 
 interface RightSidebarControlsProps {
   contentWidth: WidthMode
