@@ -27,11 +27,6 @@ export default function NavBar() {
               reading
             </Button>
           </Link>
-          <Link href="/projects">
-            <Button variant="secondary" size="sm">
-              projects
-            </Button>
-          </Link>
         </div>
       </div>
     </nav>
