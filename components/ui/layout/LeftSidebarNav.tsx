@@ -114,7 +114,7 @@ export default function LeftSidebarNav({ sections }: LeftSidebarNavProps) {
               top: `${top}px`,
               transform: 'translateY(-50%) translateZ(0)',
               fontFamily: 'Reef',
-              fontSize: '2.25rem',
+              fontSize: '1.5rem',
               lineHeight: '1.1',
               right: 0
             }}

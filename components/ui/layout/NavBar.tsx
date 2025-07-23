@@ -16,7 +16,7 @@ export default function NavBar() {
             {/* Header/Label */}
             <Link 
               href="/" 
-              className="text-xl font-medium text-[var(--color-text)]"
+              className="text-2xl font-medium text-[var(--color-text)]"
               style={{ fontFamily: 'Reef, var(--font-inter), system-ui, sans-serif' }}
             >
               rohanluthra
@@ -27,7 +27,7 @@ export default function NavBar() {
               <Link href="/">
                 <Button 
                   variant="secondary" 
-                  size="sm"
+                  size="lg"
                   style={{ fontFamily: 'Reef, var(--font-inter), system-ui, sans-serif' }}
                 >
                   writing
@@ -36,7 +36,7 @@ export default function NavBar() {
               <Link href="/about">
                 <Button 
                   variant="secondary" 
-                  size="sm"
+                  size="lg"
                   style={{ fontFamily: 'Reef, var(--font-inter), system-ui, sans-serif' }}
                 >
                   about
