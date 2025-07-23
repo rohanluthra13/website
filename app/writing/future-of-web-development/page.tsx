@@ -1,10 +1,12 @@
+'use client'
+
 import AppLayout from '@/components/ui/layout/AppLayout'
 import Link from 'next/link'
 
 export default function FutureOfWebDevelopmentPost() {
   return (
     <AppLayout>
-      <article className="max-w-3xl mx-auto">
+      <article className="px-8">
         <header className="mb-12">
           <Link href="/writing" className="text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 mb-4 inline-block">
             ← Back to Writing

@@ -19,7 +19,7 @@ export default function Error({
   }, [error])
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-4">
+    <div className="min-h-screen bg-background p-4">
       <ErrorCard
         title="Application Error"
         error={error}

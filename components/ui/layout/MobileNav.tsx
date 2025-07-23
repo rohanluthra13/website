@@ -2,19 +2,13 @@
 
 import { useEffect } from 'react'
 import { createPortal } from 'react-dom'
-import { useRouter, useParams } from 'next/navigation'
-import { X, Menu, Home, BarChart3, Search, Building2 } from 'lucide-react'
-import { useTheme } from '../providers/ThemeProvider'
+import { useParams } from 'next/navigation'
+import { X, Menu, FileText, User } from 'lucide-react'
+import { useLayout } from '../providers/LayoutProvider'
 import Link from 'next/link'
 
-interface MobileNavProps {
-  companyName?: string
-  ticker?: string
-}
-
-export function MobileNav({ companyName, ticker }: MobileNavProps) {
-  const { mobileMenuOpen, setMobileMenuOpen, isMobile } = useTheme()
-  const router = useRouter()
+export function MobileNav() {
+  const { mobileMenuOpen, setMobileMenuOpen, isMobile } = useLayout()
   const params = useParams()
 
   // Close menu on route change
@@ -51,25 +45,15 @@ export function MobileNav({ companyName, ticker }: MobileNavProps) {
 
   const navigationItems = [
     {
-      label: 'Home',
+      label: 'Writing',
       href: '/',
-      icon: Home,
-      description: 'Search companies'
+      icon: FileText,
     },
-    ...(ticker ? [
-      {
-        label: 'Overview',
-        href: `/company/${ticker}`,
-        icon: Building2,
-        description: 'Company overview'
-      },
-      {
-        label: 'Financials',
-        href: `/company/${ticker}?section=financials`,
-        icon: BarChart3,
-        description: 'Financial statements'
-      }
-    ] : [])
+    {
+      label: 'About',
+      href: '/about',
+      icon: User,
+    }
   ]
 
   const mobileMenu = (
@@ -94,16 +78,9 @@ export function MobileNav({ companyName, ticker }: MobileNavProps) {
       >
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-border">
-          <div>
-            <h2 id="mobile-nav-title" className="text-lg font-semibold text-text-primary">
-              Navigation
-            </h2>
-            {companyName && (
-              <p className="text-sm text-text-secondary mt-1">
-                {companyName} ({ticker})
-              </p>
-            )}
-          </div>
+          <h2 id="mobile-nav-title" className="text-lg font-semibold text-text-primary">
+            rohanluthra
+          </h2>
           <button
             onClick={() => setMobileMenuOpen(false)}
             className="p-2 rounded-lg hover:bg-gray-100 transition-colors touch-target"
@@ -124,28 +101,11 @@ export function MobileNav({ companyName, ticker }: MobileNavProps) {
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <item.icon size={20} className="text-text-secondary" />
-                  <div>
-                    <div className="font-medium">{item.label}</div>
-                    <div className="text-sm text-text-secondary">{item.description}</div>
-                  </div>
+                  <div className="font-medium">{item.label}</div>
                 </Link>
               </li>
             ))}
           </ul>
-
-          {/* Quick Search */}
-          <div className="mt-8 pt-6 border-t border-border">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false)
-                router.push('/')
-              }}
-              className="w-full p-4 bg-accent/10 text-accent rounded-lg hover:bg-accent/20 transition-colors touch-target flex items-center justify-center space-x-2"
-            >
-              <Search size={20} />
-              <span>Search Companies</span>
-            </button>
-          </div>
         </nav>
       </div>
     </>
@@ -158,8 +118,8 @@ export function MobileNav({ companyName, ticker }: MobileNavProps) {
 }
 
 // Mobile header component
-export function MobileHeader({ companyName, ticker }: MobileNavProps) {
-  const { setMobileMenuOpen, isMobile } = useTheme()
+export function MobileHeader() {
+  const { setMobileMenuOpen, isMobile } = useLayout()
 
   if (!isMobile) return null
 
@@ -176,18 +136,9 @@ export function MobileHeader({ companyName, ticker }: MobileNavProps) {
         </button>
 
         <div className="flex-1 text-center">
-          {companyName ? (
-            <div>
-              <h1 className="text-sm font-semibold text-text-primary truncate">
-                {companyName}
-              </h1>
-              <p className="text-xs text-text-secondary">{ticker}</p>
-            </div>
-          ) : (
-            <h1 className="text-sm font-semibold text-text-primary">
-              Financial Data
-            </h1>
-          )}
+          <h1 className="text-sm font-semibold text-text-primary">
+            rohanluthra
+          </h1>
         </div>
 
         <div className="w-10" /> {/* Spacer for centering */}

@@ -50,7 +50,15 @@ const IconMenuButton = memo(function IconMenuButton({
       {/* Custom Hover Label - positioned to the left */}
       {isHovered && !isOpen && (
         <div className="absolute top-1/2 right-full mr-2 -translate-y-1/2 px-2 py-1 whitespace-nowrap">
-          <span className="text-xs text-[#1A1A1A]">{title}</span>
+          <span 
+            className="text-xs text-[#666666] font-normal tracking-wide" 
+            style={{ 
+              fontFamily: 'Reef, var(--font-inter), system-ui, sans-serif',
+              textTransform: 'none'
+            }}
+          >
+            {title}
+          </span>
         </div>
       )}
 

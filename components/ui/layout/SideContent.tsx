@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useTheme } from '../providers/ThemeProvider'
+import { useLayout } from '../providers/LayoutProvider'
 import MetricRow from '../primitives/MetricRow'
 
 interface SideContentProps {
@@ -22,7 +22,7 @@ interface SideContentProps {
 }
 
 export default function SideContent({ company, latestFiling }: SideContentProps) {
-  const { rightSidebarOpen, isMobile } = useTheme()
+  const { rightSidebarOpen, isMobile } = useLayout()
 
   if (isMobile || !rightSidebarOpen) {
     return null

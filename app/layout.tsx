@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter, Playfair_Display, Space_Mono } from "next/font/google";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/react';
-import { ThemeProvider } from "../components/ui/providers/ThemeProvider";
+import { LayoutProvider } from "../components/ui/providers/LayoutProvider";
 import NavBar from "../components/ui/layout/NavBar";
 import "./globals.css";
 
@@ -47,10 +47,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${playfair.variable} ${spaceMono.variable} antialiased`}
       >
-        <ThemeProvider>
+        <LayoutProvider>
           <NavBar />
           {children}
-        </ThemeProvider>
+        </LayoutProvider>
         <SpeedInsights />
         <Analytics />
       </body>

@@ -25,9 +25,6 @@ export function Button({
     transition-all
     duration-[var(--transition-fast)]
     focus:outline-none
-    focus:ring-2
-    focus:ring-[var(--color-accent)]
-    focus:ring-opacity-20
     disabled:opacity-[var(--button-disabled-opacity)]
     disabled:cursor-not-allowed
     button-press
@@ -44,8 +41,6 @@ export function Button({
     secondary: `
       bg-[var(--button-secondary-bg)]
       text-[var(--button-secondary-text)]
-      border
-      border-[var(--button-secondary-border)]
       hover:bg-[var(--button-secondary-hover)]
       disabled:hover:bg-[var(--button-secondary-bg)]
     `

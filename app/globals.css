@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* Custom Font Declaration */
+@font-face {
+  font-family: 'Reef';
+  src: url('/Reef.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* Colors */
   --color-background: #EDE7E3;
@@ -414,7 +423,6 @@ html {
 
 .button-press:active {
   transform: scale(0.98);
-  box-shadow: var(--shadow-sm);
 }
 
 .input-focus {

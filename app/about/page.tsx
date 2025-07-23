@@ -1,11 +1,11 @@
+'use client'
+
 import AppLayout from '@/components/ui/layout/AppLayout'
 
 export default function AboutPage() {
   return (
     <AppLayout>
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-12">About</h1>
-        
+      <div className="px-8">
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-4">Bio</h2>
           <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">

@@ -108,16 +108,16 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
         {/* 4-Column CSS Grid Layout: Left Sidebar - Main Content - Side Content - Right Sidebar */}
         <div className="grid grid-cols-[var(--sidebar-left-width)_2fr_1fr_var(--sidebar-right-width)] min-h-[calc(100vh-var(--mobile-header-height,0px))]">
           {/* Left Sidebar - Navigation */}
-          <div className="bg-[var(--color-surface)] border-r border-[var(--color-border)] border-2 border-dashed border-red-300">
+          <div className="bg-[var(--color-surface)]">
           </div>
 
           {/* Main Content - Primary content area */}
-          <main className="page-transition border-2 border-dashed border-blue-300">
+          <main className="page-transition">
             {children}
           </main>
 
           {/* Side Content - Secondary content */}
-          <div className="bg-[var(--color-surface)] border-l border-[var(--color-border)] border-2 border-dashed border-green-300">
+          <div className="bg-[var(--color-surface)]">
           </div>
 
           {/* Right Sidebar - Controls Panel */}

@@ -2,7 +2,7 @@
 
 import { memo } from 'react'
 import { ALargeSmall } from 'lucide-react'
-import { useTheme } from '../providers/ThemeProvider'
+import { useLayout } from '../providers/LayoutProvider'
 import IconMenuButton from '../primitives/IconMenuButton'
 import DisplayOptions, { type FontMode } from '../primitives/DisplayOptions'
 
@@ -21,7 +21,7 @@ const RightSidebarControls = memo(function RightSidebarControls({
   font,
   onFontChange
 }: RightSidebarControlsProps) {
-  const { rightSidebarOpen, isMobile } = useTheme()
+  const { rightSidebarOpen, isMobile } = useLayout()
 
   // Hide on mobile and when sidebar is closed
   if (isMobile || !rightSidebarOpen) {
@@ -36,8 +36,8 @@ const RightSidebarControls = memo(function RightSidebarControls({
         {/* Display Settings */}
         <IconMenuButton
           icon={ALargeSmall}
-          title="Display settings"
-          ariaLabel="Display settings"
+          title="display settings"
+          ariaLabel="display settings"
         >
           {({ close }) => (
             <DisplayOptions

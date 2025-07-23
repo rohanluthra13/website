@@ -3,7 +3,7 @@
 import { usePathname, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { useTheme } from '../providers/ThemeProvider'
+import { useLayout } from '../providers/LayoutProvider'
 import NavItem from '../primitives/NavItem'
 import { Suspense } from 'react'
 
@@ -18,7 +18,7 @@ interface LeftSidebarProps {
 function LeftSidebarContent({ company }: LeftSidebarProps) {
   const pathname = usePathname()
   const searchParams = useSearchParams()
-  const { isMobile } = useTheme()
+  const { isMobile } = useLayout()
   
   const navigationItems = company ? [
     {

@@ -1,3 +1,5 @@
+'use client'
+
 import AppLayout from '@/components/ui/layout/AppLayout'
 import Link from 'next/link'
 
@@ -28,13 +30,11 @@ const posts = [
 export default function WritingPage() {
   return (
     <AppLayout>
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-12">Writing</h1>
-        
+      <div className="px-8">
         <div className="space-y-8">
           {posts.map((post) => (
             <article key={post.slug} className="group">
-              <Link href={`/writing/${post.slug}`} className="block p-6 -mx-6 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-900/50 transition-colors">
+              <Link href={`/writing/${post.slug}`} className="block p-6 -mx-6 rounded-lg transition-colors">
                 <time className="text-sm text-gray-500 dark:text-gray-400">
                   {new Date(post.date).toLocaleDateString('en-US', { 
                     year: 'numeric', 
