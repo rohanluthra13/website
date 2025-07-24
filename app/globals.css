@@ -201,6 +201,10 @@ body {
   font-family: var(--font-space-mono), Consolas, Monaco, monospace !important;
 }
 
+.font-permanent-marker {
+  font-family: var(--font-permanent-marker), cursive !important;
+}
+
 /* Minimal scrollbar styles */
 .scrollbar-thin {
   scrollbar-width: thin;
