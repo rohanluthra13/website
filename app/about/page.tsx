@@ -78,7 +78,7 @@ export default function AboutPage() {
           </ul>
         </Section>
 
-        <Section id="tools" hideTitle>
+        <Section id="tools" hideTitle className="mb-64">
           <ul className="space-y-2 text-lg">
             <li className="flex items-center gap-2">
               <span className="text-gray-400">•</span>
@@ -102,6 +102,9 @@ export default function AboutPage() {
             </li>
           </ul>
         </Section>
+        
+        {/* Spacer to ensure last section can scroll high enough to be selected */}
+        <div className="h-[15vh]"></div>
       </div>
     </AppLayout>
   )
