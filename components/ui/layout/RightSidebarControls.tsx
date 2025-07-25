@@ -38,17 +38,15 @@ const RightSidebarControls = memo(function RightSidebarControls({
     }
   }, [isOpen])
 
-  // Hide on mobile and when sidebar is closed
-  if (isMobile || !rightSidebarOpen) {
+  // Hide on mobile
+  if (isMobile) {
     return null
   }
 
   return (
-    <aside className="w-full bg-[var(--color-surface)] min-h-screen sticky top-0 overflow-y-auto relative">
-      {/* Icon Group - aligned with search bar */}
-      <div className="absolute right-0 p-4 flex flex-col gap-2 z-50" style={{ top: 'calc(22px - 0.875rem/2)' }}>
-        {/* Display Settings */}
-        <div ref={containerRef} className="relative">
+    <div ref={containerRef} className="fixed right-4 z-50" style={{ 
+      top: '80px' 
+    }}>
           <button
             onClick={() => setIsOpen(!isOpen)}
             onMouseEnter={() => setIsHovered(true)}
@@ -92,9 +90,7 @@ const RightSidebarControls = memo(function RightSidebarControls({
               />
             </div>
           )}
-        </div>
-      </div>
-    </aside>
+    </div>
   )
 })
 

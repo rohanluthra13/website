@@ -40,18 +40,23 @@ export default function AppLayout({ children, sections }: AppLayoutProps) {
             </div>
           </main>
 
-          {/* Right Sidebar - Controls Panel */}
-          <RightSidebarControls 
-            contentWidth={contentWidth}
-            onContentWidthChange={setContentWidth}
-            font={font}
-            onFontChange={setFont}
-          />
+          {/* Right Sidebar - Empty container like left sidebar */}
+          <div className="bg-[var(--color-surface)] relative">
+            {/* The sidebar is just an empty container */}
+          </div>
         </div>
         
         {/* Footer - Full width */}
         <Footer />
       </div>
+
+      {/* Floating Display Settings Button - Outside the grid */}
+      <RightSidebarControls 
+        contentWidth={contentWidth}
+        onContentWidthChange={setContentWidth}
+        font={font}
+        onFontChange={setFont}
+      />
 
       {/* Mobile Navigation */}
       <MobileNav />

@@ -5,9 +5,9 @@ import Section from '@/components/ui/primitives/Section'
 
 const sections = [
   { id: 'bio', label: 'hi 👋' },
-  { id: 'projects', label: 'projects' },
+  { id: 'projects', label: 'some stuff i\'ve been doing' },
   { id: 'reading', label: 'some things i\'ve been reading' },
-  { id: 'tools', label: 'tools i\'m using' }
+  { id: 'tools', label: 'some tools i like using' }
 ]
 
 export default function AboutPage() {
