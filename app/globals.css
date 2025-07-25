@@ -505,10 +505,6 @@ html {
               transform var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Width mode transitions for layout */
-.grid {
-  transition: grid-template-columns var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
-}
 
 /* Enhanced hover states */
 .hover-lift {
