@@ -6,11 +6,7 @@ import { MobileNav, MobileHeader } from './MobileNav'
 import NavBar from './NavBar'
 import Footer from './Footer'
 import { useLayout } from '../providers/LayoutProvider'
-
-interface SectionData {
-  id: string
-  label: string
-}
+import { type SectionData } from '../../../types/layout'
 
 interface AppLayoutProps {
   children: React.ReactNode

@@ -59,11 +59,11 @@ const DisplayOptions = memo(function DisplayOptions({
     <div className="w-[160px] h-[160px] p-3 relative">
       {/* Font Row */}
       <div className="flex items-center justify-between mb-3">
-        <span className="text-xs text-[#1A1A1A]">Font</span>
+        <span className="text-xs text-[var(--color-text-primary)]">Font</span>
         
         <button
           onClick={() => setShowFontPicker(!showFontPicker)}
-          className="px-2 py-1 text-xs rounded border border-[#333333] text-[#1A1A1A] hover:bg-[var(--color-surface)] transition-all duration-200"
+          className="px-2 py-1 text-xs rounded border border-[var(--color-border-dark)] text-[var(--color-text-primary)] hover:bg-[var(--color-surface)] transition-all duration-200"
           title="Change font"
           aria-label="Change font family"
         >
@@ -73,7 +73,7 @@ const DisplayOptions = memo(function DisplayOptions({
 
       {/* Width Row */}
       <div className="flex items-center justify-between">
-        <span className="text-xs text-[#1A1A1A]">Width</span>
+        <span className="text-xs text-[var(--color-text-primary)]">Width</span>
         
         <div className="flex items-center gap-2">
           <button
@@ -82,8 +82,8 @@ const DisplayOptions = memo(function DisplayOptions({
             className={`
               p-1 rounded border transition-all duration-200
               ${canNarrow 
-                ? 'text-[#1A1A1A] hover:bg-[var(--color-surface)] border-[#333333]' 
-                : 'text-[#CCCCCC] cursor-not-allowed border-[#E5E5E5]'
+                ? 'text-[var(--color-text-primary)] hover:bg-[var(--color-surface)] border-[var(--color-border-dark)]' 
+                : 'text-[var(--color-text-disabled)] cursor-not-allowed border-[var(--color-border)]'
               }
             `}
             title="Make narrower"
@@ -98,8 +98,8 @@ const DisplayOptions = memo(function DisplayOptions({
             className={`
               p-1 rounded border transition-all duration-200
               ${canWiden 
-                ? 'text-[#1A1A1A] hover:bg-[var(--color-surface)] border-[#333333]' 
-                : 'text-[#CCCCCC] cursor-not-allowed border-[#E5E5E5]'
+                ? 'text-[var(--color-text-primary)] hover:bg-[var(--color-surface)] border-[var(--color-border-dark)]' 
+                : 'text-[var(--color-text-disabled)] cursor-not-allowed border-[var(--color-border)]'
               }
             `}
             title="Make wider"
@@ -116,7 +116,7 @@ const DisplayOptions = memo(function DisplayOptions({
           <div className="flex items-center gap-3 mb-3 flex-shrink-0">
             <button
               onClick={() => setShowFontPicker(false)}
-              className="text-[#666666] hover:text-[#1A1A1A] transition-colors"
+              className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
               aria-label="Back to main options"
             >
               <ArrowLeft size={14} />
@@ -131,7 +131,7 @@ const DisplayOptions = memo(function DisplayOptions({
                   onClick={() => handleFontSelect(fontOption.value)}
                   className={`
                     w-full text-left px-2 py-2 text-xs rounded transition-all duration-200 
-                    hover:bg-[var(--color-background)] hover:font-semibold text-[#1A1A1A]
+                    hover:bg-[var(--color-background)] hover:font-semibold text-[var(--color-text-primary)]
                     ${font === fontOption.value ? 'font-semibold' : 'font-normal'}
                   `}
                   style={{ fontFamily: fontOption.cssVar }}

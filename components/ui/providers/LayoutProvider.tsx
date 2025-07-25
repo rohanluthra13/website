@@ -1,23 +1,15 @@
 'use client'
 
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react'
-import { type WidthMode } from '../layout/RightSidebarControls'
-import { type FontMode } from '../primitives/DisplayOptions'
+import { type WidthMode, type FontMode, type LayoutContextType } from '../../../types/layout'
 
-interface LayoutContextType {
-  leftSidebarOpen: boolean
-  rightSidebarOpen: boolean
-  mobileMenuOpen: boolean
-  isMobile: boolean
-  contentWidth: WidthMode
-  font: FontMode
-  toggleLeftSidebar: () => void
-  toggleRightSidebar: () => void
-  setLeftSidebarOpen: (open: boolean) => void
-  setRightSidebarOpen: (open: boolean) => void
-  setMobileMenuOpen: (open: boolean) => void
-  setContentWidth: (width: WidthMode) => void
-  setFont: (font: FontMode) => void
+// Type guards for localStorage validation
+const isValidWidthMode = (value: string): value is WidthMode => {
+  return ['narrower', 'narrow', 'normal', 'wide'].includes(value)
+}
+
+const isValidFontMode = (value: string): value is FontMode => {
+  return ['geist', 'inter', 'playfair', 'spacemono', 'system'].includes(value)
 }
 
 const LayoutContext = createContext<LayoutContextType | undefined>(undefined)
@@ -46,8 +38,8 @@ export function LayoutProvider({ children }: LayoutProviderProps) {
   useEffect(() => {
     const savedLeftSidebar = localStorage.getItem('leftSidebarOpen')
     const savedRightSidebar = localStorage.getItem('rightSidebarOpen')
-    const savedWidth = localStorage.getItem('contentWidth') as WidthMode
-    const savedFont = localStorage.getItem('font') as FontMode
+    const savedWidth = localStorage.getItem('contentWidth')
+    const savedFont = localStorage.getItem('font')
     
     if (savedLeftSidebar !== null) {
       setLeftSidebarOpen(JSON.parse(savedLeftSidebar))
@@ -55,10 +47,10 @@ export function LayoutProvider({ children }: LayoutProviderProps) {
     if (savedRightSidebar !== null) {
       setRightSidebarOpen(JSON.parse(savedRightSidebar))
     }
-    if (savedWidth && ['narrower', 'narrow', 'normal', 'wide'].includes(savedWidth)) {
+    if (savedWidth && isValidWidthMode(savedWidth)) {
       setContentWidthState(savedWidth)
     }
-    if (savedFont && ['geist', 'inter', 'playfair', 'spacemono', 'system'].includes(savedFont)) {
+    if (savedFont && isValidFontMode(savedFont)) {
       setFontState(savedFont)
     }
   }, [])

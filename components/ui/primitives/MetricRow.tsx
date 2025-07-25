@@ -18,11 +18,11 @@ export default function MetricRow({
   const getTrendColor = () => {
     switch (trend) {
       case 'up':
-        return 'text-[#10B981]'
+        return 'text-[var(--color-success)]'
       case 'down':
-        return 'text-[#EF4444]'
+        return 'text-[var(--color-error)]'
       default:
-        return 'text-[#666666]'
+        return 'text-[var(--color-text-secondary)]'
     }
   }
 
@@ -40,13 +40,13 @@ export default function MetricRow({
   return (
     <div className="flex justify-between items-start py-2">
       <div className="flex-1">
-        <span className="text-[#666666] text-sm">{label}</span>
+        <span className="text-[var(--color-text-secondary)] text-sm">{label}</span>
         {sublabel && (
-          <div className="text-xs text-[#999999] mt-0.5">{sublabel}</div>
+          <div className="text-xs text-[var(--color-text-tertiary)] mt-0.5">{sublabel}</div>
         )}
       </div>
       <div className="text-right">
-        <div className="text-[#1A1A1A] text-sm font-medium">
+        <div className="text-[var(--color-text-primary)] text-sm font-medium">
           {typeof value === 'number' ? value.toLocaleString() : value}
         </div>
         {trend && trendValue && (

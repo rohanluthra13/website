@@ -60,7 +60,7 @@ export function MobileNav() {
     <>
       {/* Backdrop */}
       <div
-        className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity duration-300 ${
+        className={`fixed inset-0 bg-[var(--color-overlay)] backdrop-blur-sm z-40 transition-opacity duration-300 ${
           mobileMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         onClick={() => setMobileMenuOpen(false)}
@@ -83,7 +83,7 @@ export function MobileNav() {
           </h2>
           <button
             onClick={() => setMobileMenuOpen(false)}
-            className="p-2 rounded-lg hover:bg-gray-100 transition-colors touch-target"
+            className="p-2 rounded-lg hover:bg-[var(--color-hover-light)] transition-colors touch-target"
             aria-label="Close navigation menu"
           >
             <X size={20} className="text-text-secondary" />
@@ -97,7 +97,7 @@ export function MobileNav() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="w-full text-left p-4 rounded-lg hover:bg-gray-50 transition-colors touch-target flex items-center space-x-3 text-text-primary"
+                  className="w-full text-left p-4 rounded-lg hover:bg-[var(--color-hover-lighter)] transition-colors touch-target flex items-center space-x-3 text-text-primary"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <item.icon size={20} className="text-text-secondary" />
@@ -128,7 +128,7 @@ export function MobileHeader() {
       <div className="flex items-center justify-between p-4">
         <button
           onClick={() => setMobileMenuOpen(true)}
-          className="p-2 rounded-lg hover:bg-gray-100 transition-colors touch-target"
+          className="p-2 rounded-lg hover:bg-[var(--color-hover-light)] transition-colors touch-target"
           aria-label="Open navigation menu"
           aria-expanded="false"
         >

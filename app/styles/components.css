@@ -1,0 +1,246 @@
+/* Component utility classes */
+.sidebar-left-width {
+  width: var(--sidebar-left-width) !important;
+}
+
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+  padding: var(--content-padding);
+}
+
+.sidebar {
+  background-color: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+  transition: var(--transition-normal);
+}
+
+.nav-item {
+  padding: 0.5rem 1rem;
+  color: var(--color-text-secondary);
+  transition: var(--transition-fast);
+}
+
+.nav-item:hover {
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
+}
+
+.nav-item-active {
+  color: var(--color-accent);
+  background-color: var(--color-background);
+  font-weight: 500;
+}
+
+.table-row {
+  border-bottom: 1px solid var(--color-border);
+  transition: var(--transition-fast);
+}
+
+.table-row:hover {
+  background-color: var(--color-background);
+}
+
+/* Font utility classes */
+.font-inter {
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif !important;
+}
+
+.font-playfair {
+  font-family: var(--font-playfair), Georgia, serif !important;
+}
+
+.font-spacemono {
+  font-family: var(--font-space-mono), Consolas, Monaco, monospace !important;
+}
+
+.font-permanent-marker {
+  font-family: var(--font-permanent-marker), cursive !important;
+}
+
+/* Scrollbar styles */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-text-disabled) transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: var(--color-text-disabled);
+  border-radius: 2px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-text-disabled);
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:active {
+  background-color: var(--color-text-disabled);
+}
+
+/* Touch targets for mobile */
+.touch-target {
+  min-height: var(--touch-target-size);
+  min-width: var(--touch-target-size);
+  touch-action: manipulation;
+}
+
+/* Enhanced skeleton loading */
+.skeleton {
+  background: var(--skeleton-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background: var(--shimmer-bg);
+  animation: shimmer 2s infinite;
+  content: '';
+}
+
+/* Tab transitions */
+.tab-slide {
+  position: relative;
+  overflow: hidden;
+}
+
+.tab-slide::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-accent);
+  transition: width var(--transition-normal) ease-out;
+}
+
+.tab-slide.active::before {
+  width: 100%;
+}
+
+/* Card animations */
+.card-enter {
+  animation: fadeIn 300ms ease-out;
+}
+
+.card-hover {
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.card-hover:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Section navigation transitions */
+.section-transition {
+  transition: opacity 200ms ease-out, transform 200ms ease-out;
+}
+
+.section-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.section-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-navigation-button {
+  transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+}
+
+.section-navigation-button:hover {
+  transform: translateY(-1px);
+}
+
+.section-navigation-button:active {
+  transform: translateY(0);
+}
+
+/* Sidebar transitions */
+.sidebar-transition {
+  transition: width var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1),
+              transform var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Text color utilities */
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.text-strong {
+  color: var(--color-text-strong);
+}
+
+.text-link {
+  color: var(--color-link);
+}
+
+.text-link:hover {
+  color: var(--color-accent);
+}
+
+/* Background color utilities */
+.bg-error-light {
+  background-color: var(--color-error-bg);
+}
+
+.bg-success-light {
+  background-color: var(--color-success-bg);
+}
+
+.bg-hover-light {
+  background-color: var(--color-hover-light);
+}
+
+.bg-hover-lighter {
+  background-color: var(--color-hover-lighter);
+}
+
+/* Border color utilities */
+.border-light {
+  border-color: var(--color-border-light);
+}
+
+.border-dark {
+  border-color: var(--color-border-dark);
+}
+
+/* Interactive states */
+.hover\:bg-hover-light:hover {
+  background-color: var(--color-hover-light);
+}
+
+.hover\:bg-hover-lighter:hover {
+  background-color: var(--color-hover-lighter);
+}
+
+.hover\:text-strong:hover {
+  color: var(--color-text-strong);
+}
+
+.hover\:text-link:hover {
+  color: var(--color-link);
+}
+
+.hover\:border-light:hover {
+  border-color: var(--color-border-light);
+}

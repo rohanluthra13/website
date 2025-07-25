@@ -3,8 +3,14 @@
 import { useState } from 'react'
 import { ErrorCard } from '../../components/ui/primitives/ErrorCard'
 
+type ErrorType = 'generic' | 'network' | 'database' | 'custom'
+
+const isValidErrorType = (value: string): value is ErrorType => {
+  return ['generic', 'network', 'database', 'custom'].includes(value)
+}
+
 export default function ErrorPreviewPage() {
-  const [errorType, setErrorType] = useState<'generic' | 'network' | 'database' | 'custom'>('generic')
+  const [errorType, setErrorType] = useState<ErrorType>('generic')
   
   const mockErrors = {
     generic: new Error('Something went wrong with the application'),
@@ -27,7 +33,12 @@ export default function ErrorPreviewPage() {
           <label className="block text-sm font-medium mb-2">Error Type:</label>
           <select 
             value={errorType} 
-            onChange={(e) => setErrorType(e.target.value as any)}
+            onChange={(e) => {
+              const value = e.target.value
+              if (isValidErrorType(value)) {
+                setErrorType(value)
+              }
+            }}
             className="border border-border rounded px-3 py-2 bg-surface"
           >
             <option value="generic">Generic Error</option>
@@ -37,7 +48,7 @@ export default function ErrorPreviewPage() {
           </select>
         </div>
 
-        <div className="border-2 border-dashed border-gray-300 p-8 rounded-lg">
+        <div className="border-2 border-dashed border-light p-8 rounded-lg">
           <h2 className="text-lg font-semibold mb-4">Error Card Preview:</h2>
           <ErrorCard
             title="Application Error"

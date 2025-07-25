@@ -19,7 +19,7 @@ const RightSidebarControls = memo(function RightSidebarControls({
   font,
   onFontChange
 }: RightSidebarControlsProps) {
-  const { rightSidebarOpen, isMobile } = useLayout()
+  const { isMobile } = useLayout()
   const [isOpen, setIsOpen] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -56,7 +56,7 @@ const RightSidebarControls = memo(function RightSidebarControls({
             aria-expanded={isOpen}
           >
             <span 
-              className="font-permanent-marker text-black" 
+              className="font-permanent-marker text-[var(--color-text-primary)]" 
               style={{ fontSize: '32px', lineHeight: '40px' }}
             >
               Aa
@@ -67,7 +67,7 @@ const RightSidebarControls = memo(function RightSidebarControls({
           {isHovered && !isOpen && (
             <div className="absolute top-1/2 right-full mr-2 -translate-y-1/2 px-2 py-1 whitespace-nowrap">
               <span 
-                className="text-xs text-[#666666] font-normal tracking-wide" 
+                className="text-xs text-[var(--color-text-secondary)] font-normal tracking-wide" 
                 style={{ 
                   fontFamily: 'Reef, var(--font-inter), system-ui, sans-serif',
                   textTransform: 'none'

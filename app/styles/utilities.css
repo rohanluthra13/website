@@ -1,0 +1,82 @@
+/* Responsive containers */
+.container-responsive {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-4);
+  padding-right: var(--spacing-4);
+}
+
+@media (min-width: 640px) {
+  .container-responsive {
+    max-width: 640px;
+    padding-left: var(--spacing-6);
+    padding-right: var(--spacing-6);
+  }
+}
+
+@media (min-width: 768px) {
+  .container-responsive {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-responsive {
+    max-width: 1024px;
+    padding-left: var(--spacing-8);
+    padding-right: var(--spacing-8);
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-responsive {
+    max-width: 1280px;
+  }
+}
+
+/* Responsive tables */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive table {
+  min-width: 600px;
+}
+
+@media (max-width: 768px) {
+  .table-responsive table {
+    font-size: var(--font-size-sm);
+  }
+  
+  .table-responsive th,
+  .table-responsive td {
+    padding: var(--spacing-2);
+  }
+}
+
+/* Responsive images */
+.image-responsive {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mobile responsive behavior for CSS Grid layout */
+@media (max-width: 768px) {
+  button,
+  input,
+  select,
+  textarea,
+  a,
+  .clickable {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Convert 4-column grid to single column on mobile */
+  .grid-cols-\[var\(--sidebar-left-width\)_2fr_1fr_var\(--sidebar-right-width\)\] {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto 1fr !important;
+  }
+}

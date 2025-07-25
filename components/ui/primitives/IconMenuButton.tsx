@@ -44,14 +44,14 @@ const IconMenuButton = memo(function IconMenuButton({
         aria-label={ariaLabel}
         aria-expanded={isOpen}
       >
-        <Icon size={20} className="text-[#666666]" />
+        <Icon size={20} className="text-[var(--color-text-secondary)]" />
       </button>
 
       {/* Custom Hover Label - positioned to the left */}
       {isHovered && !isOpen && (
         <div className="absolute top-1/2 right-full mr-2 -translate-y-1/2 px-2 py-1 whitespace-nowrap">
           <span 
-            className="text-xs text-[#666666] font-normal tracking-wide" 
+            className="text-xs text-[var(--color-text-secondary)] font-normal tracking-wide" 
             style={{ 
               fontFamily: 'Reef, var(--font-inter), system-ui, sans-serif',
               textTransform: 'none'

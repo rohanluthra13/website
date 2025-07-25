@@ -1,11 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-
-interface SectionData {
-  id: string
-  label: string
-}
+import { type SectionData } from '../../../types/layout'
 
 interface LeftSidebarNavProps {
   sections: SectionData[]

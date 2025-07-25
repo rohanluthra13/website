@@ -35,7 +35,7 @@ export default function HomePage() {
           {posts.map((post) => (
             <article key={post.slug} className="group">
               <Link href={`/writing/${post.slug}`} className="block p-6 -mx-6 rounded-lg transition-colors">
-                <time className="text-sm text-gray-500 dark:text-gray-400">
+                <time className="text-sm text-muted dark:text-gray-400">
                   {new Date(post.date).toLocaleDateString('en-US', { 
                     year: 'numeric', 
                     month: 'long', 
@@ -44,10 +44,10 @@ export default function HomePage() {
                   <span className="mx-2">·</span>
                   {post.readTime}
                 </time>
-                <h2 className="text-2xl font-semibold mt-2 mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                <h2 className="text-2xl font-semibold mt-2 mb-3 group-hover:text-link dark:group-hover:text-blue-400 transition-colors">
                   {post.title}
                 </h2>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                <p className="text-muted dark:text-gray-400 leading-relaxed">
                   {post.excerpt}
                 </p>
               </Link>
