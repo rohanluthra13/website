@@ -1,15 +1,11 @@
 'use client'
 
-import React, { createContext, useContext, useEffect, useState, useCallback } from 'react'
-import { type WidthMode, type FontMode, type LayoutContextType } from '../../../types/layout'
+import React, { createContext, useContext, useEffect, useState, useCallback, useMemo } from 'react'
+import { type WidthMode, type LayoutContextType } from '../../../types/layout'
 
-// Type guards for localStorage validation
+// Type guard for localStorage validation
 const isValidWidthMode = (value: string): value is WidthMode => {
   return ['narrower', 'narrow', 'normal', 'wide'].includes(value)
-}
-
-const isValidFontMode = (value: string): value is FontMode => {
-  return ['geist', 'inter', 'playfair', 'spacemono', 'system'].includes(value)
 }
 
 const LayoutContext = createContext<LayoutContextType | undefined>(undefined)
@@ -32,14 +28,12 @@ export function LayoutProvider({ children }: LayoutProviderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
   const [contentWidth, setContentWidthState] = useState<WidthMode>('narrower')
-  const [font, setFontState] = useState<FontMode>('geist')
 
   // Load preferences from localStorage on mount
   useEffect(() => {
     const savedLeftSidebar = localStorage.getItem('leftSidebarOpen')
     const savedRightSidebar = localStorage.getItem('rightSidebarOpen')
     const savedWidth = localStorage.getItem('contentWidth')
-    const savedFont = localStorage.getItem('font')
     
     if (savedLeftSidebar !== null) {
       setLeftSidebarOpen(JSON.parse(savedLeftSidebar))
@@ -49,9 +43,6 @@ export function LayoutProvider({ children }: LayoutProviderProps) {
     }
     if (savedWidth && isValidWidthMode(savedWidth)) {
       setContentWidthState(savedWidth)
-    }
-    if (savedFont && isValidFontMode(savedFont)) {
-      setFontState(savedFont)
     }
   }, [])
 
@@ -119,30 +110,6 @@ export function LayoutProvider({ children }: LayoutProviderProps) {
     }
   }, [contentWidth])
 
-  // Update font family based on font mode
-  useEffect(() => {
-    // Remove all font classes first
-    document.body.classList.remove('font-geist', 'font-inter', 'font-playfair', 'font-spacemono')
-    
-    // Add the selected font class
-    switch (font) {
-      case 'geist':
-        // Default font, no additional class needed
-        break
-      case 'inter':
-        document.body.classList.add('font-inter')
-        break
-      case 'playfair':
-        document.body.classList.add('font-playfair')
-        break
-      case 'spacemono':
-        document.body.classList.add('font-spacemono')
-        break
-      case 'system':
-        // Use system font by not adding any class
-        break
-    }
-  }, [font])
 
   // Persist sidebar state to localStorage
   useEffect(() => {
@@ -157,13 +124,13 @@ export function LayoutProvider({ children }: LayoutProviderProps) {
     }
   }, [rightSidebarOpen, isMobile])
 
-  const toggleLeftSidebar = () => {
+  const toggleLeftSidebar = useCallback(() => {
     setLeftSidebarOpen(prev => !prev)
-  }
+  }, [])
 
-  const toggleRightSidebar = () => {
+  const toggleRightSidebar = useCallback(() => {
     setRightSidebarOpen(prev => !prev)
-  }
+  }, [])
 
   // Stable callback for width changes with persistence
   const setContentWidth = useCallback((newWidth: WidthMode) => {
@@ -171,27 +138,30 @@ export function LayoutProvider({ children }: LayoutProviderProps) {
     localStorage.setItem('contentWidth', newWidth)
   }, [])
 
-  // Stable callback for font changes with persistence
-  const setFont = useCallback((newFont: FontMode) => {
-    setFontState(newFont)
-    localStorage.setItem('font', newFont)
-  }, [])
 
-  const value: LayoutContextType = {
+  // Memoize context value to prevent unnecessary re-renders
+  const value = useMemo<LayoutContextType>(() => ({
     leftSidebarOpen,
     rightSidebarOpen,
     mobileMenuOpen,
     isMobile,
     contentWidth,
-    font,
     toggleLeftSidebar,
     toggleRightSidebar,
     setLeftSidebarOpen,
     setRightSidebarOpen,
     setMobileMenuOpen,
     setContentWidth,
-    setFont,
-  }
+  }), [
+    leftSidebarOpen,
+    rightSidebarOpen,
+    mobileMenuOpen,
+    isMobile,
+    contentWidth,
+    toggleLeftSidebar,
+    toggleRightSidebar,
+    setContentWidth,
+  ])
 
   return (
     <LayoutContext.Provider value={value}>

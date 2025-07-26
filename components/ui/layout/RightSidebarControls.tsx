@@ -2,24 +2,12 @@
 
 import { memo, useState, useEffect, useRef } from 'react'
 import { useLayout } from '../providers/LayoutProvider'
-import DisplayOptions, { type FontMode } from '../primitives/DisplayOptions'
+import { useTheme } from '../providers/ThemeProvider'
+import DisplayOptions from '../primitives/DisplayOptions'
 
-export type WidthMode = 'narrower' | 'narrow' | 'normal' | 'wide'
-
-interface RightSidebarControlsProps {
-  contentWidth: WidthMode
-  onContentWidthChange: (width: WidthMode) => void
-  font: FontMode
-  onFontChange: (font: FontMode) => void
-}
-
-const RightSidebarControls = memo(function RightSidebarControls({
-  contentWidth,
-  onContentWidthChange,
-  font,
-  onFontChange
-}: RightSidebarControlsProps) {
-  const { isMobile } = useLayout()
+const RightSidebarControls = memo(function RightSidebarControls() {
+  const { isMobile, contentWidth, setContentWidth } = useLayout()
+  const { font, setFont } = useTheme()
   const [isOpen, setIsOpen] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -83,9 +71,9 @@ const RightSidebarControls = memo(function RightSidebarControls({
             <div className="absolute top-0 right-full mr-2 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg shadow-md">
               <DisplayOptions
                 contentWidth={contentWidth}
-                onContentWidthChange={onContentWidthChange}
+                onContentWidthChange={setContentWidth}
                 font={font}
-                onFontChange={onFontChange}
+                onFontChange={setFont}
                 onClose={() => setIsOpen(false)}
               />
             </div>

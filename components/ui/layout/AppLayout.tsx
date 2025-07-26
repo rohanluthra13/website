@@ -3,10 +3,8 @@
 import RightSidebarControls from './RightSidebarControls'
 import LeftSidebarNav from './LeftSidebarNav'
 import { MobileNav, MobileHeader } from './MobileNav'
-import NavBar from './NavBar'
 import Footer from './Footer'
-import { useLayout } from '../providers/LayoutProvider'
-import { type SectionData } from '../../../types/layout'
+import { type SectionData } from '../../../types/navigation'
 
 interface AppLayoutProps {
   children: React.ReactNode
@@ -14,7 +12,6 @@ interface AppLayoutProps {
 }
 
 export default function AppLayout({ children, sections }: AppLayoutProps) {
-  const { contentWidth, font, setContentWidth, setFont } = useLayout()
 
   return (
     <>
@@ -47,12 +44,7 @@ export default function AppLayout({ children, sections }: AppLayoutProps) {
       </div>
 
       {/* Floating Display Settings Button - Outside the grid */}
-      <RightSidebarControls 
-        contentWidth={contentWidth}
-        onContentWidthChange={setContentWidth}
-        font={font}
-        onFontChange={setFont}
-      />
+      <RightSidebarControls />
 
       {/* Mobile Navigation */}
       <MobileNav />

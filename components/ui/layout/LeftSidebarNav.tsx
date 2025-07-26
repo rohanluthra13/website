@@ -1,7 +1,8 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { type SectionData } from '../../../types/layout'
+import { useEffect, useState, useCallback } from 'react'
+import { useNavigation } from '../providers/NavigationProvider'
+import { type SectionData } from '../../../types/navigation'
 
 interface LeftSidebarNavProps {
   sections: SectionData[]
@@ -13,10 +14,10 @@ interface LabelPosition {
 }
 
 export default function LeftSidebarNav({ sections }: LeftSidebarNavProps) {
-  const [activeSection, setActiveSection] = useState<string>('')
+  const { activeSection, setActiveSection } = useNavigation()
   const [labelPositions, setLabelPositions] = useState<LabelPosition[]>([])
 
-  const calculateLabelPositions = () => {
+  const calculateLabelPositions = useCallback(() => {
     const positions: LabelPosition[] = []
     
     sections.forEach(({ id }) => {
@@ -34,7 +35,7 @@ export default function LeftSidebarNav({ sections }: LeftSidebarNavProps) {
     })
     
     setLabelPositions(positions)
-  }
+  }, [sections])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -78,7 +79,7 @@ export default function LeftSidebarNav({ sections }: LeftSidebarNavProps) {
       window.removeEventListener('scroll', handleScroll)
       clearTimeout(scrollTimeout)
     }
-  }, [sections])
+  }, [sections, calculateLabelPositions, setActiveSection])
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)

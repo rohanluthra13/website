@@ -2,9 +2,8 @@
 
 import { memo, useState } from 'react'
 import { ChevronsRightLeft, ChevronsLeftRight, ArrowLeft } from 'lucide-react'
-import { type WidthMode } from '../layout/RightSidebarControls'
-
-export type FontMode = 'geist' | 'inter' | 'playfair' | 'spacemono' | 'system'
+import { type WidthMode } from '../../../types/layout'
+import { type FontMode } from '../../../types/theme'
 
 const fontOptions: { value: FontMode; label: string; cssVar: string }[] = [
   { value: 'geist', label: 'Geist', cssVar: 'var(--font-geist-sans), system-ui, sans-serif' },
