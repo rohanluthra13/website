@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import AppLayout from '@/components/ui/layout/AppLayout'
 import Section from '@/components/ui/primitives/Section'
 
@@ -11,6 +12,9 @@ const sections = [
 ]
 
 export default function AboutPage() {
+  const [showVibeCode, setShowVibeCode] = useState(true)
+  const [showGptConnector, setShowGptConnector] = useState(true)
+
   return (
     <AppLayout sections={sections}>
       <div className="px-8 py-12">
@@ -26,19 +30,57 @@ export default function AboutPage() {
         </Section>
 
         <Section id="projects" hideTitle className="mb-64">
-          <div className="grid gap-6">
-            <div className="flex items-start gap-4 p-6 rounded-lg border border-light dark:border-gray-800 hover:border-light dark:hover:border-gray-700 transition-colors">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
-                M
+          <div className="space-y-16">
+            <div>
+              <button 
+                onClick={() => setShowVibeCode(!showVibeCode)}
+                className="text-lg mb-6 text-muted border border-black rounded-lg px-4 py-2 inline-block cursor-pointer hover:opacity-80 transition-opacity"
+                style={{ fontFamily: 'Reef, var(--font-inter), system-ui, sans-serif', boxShadow: '0px 3px 0px black' }}
+              >
+                vibe coding
+              </button>
+              {showVibeCode && (
+                <div className="grid gap-6">
+                <div className="flex items-start gap-4 p-6 rounded-lg border border-light dark:border-gray-800 hover:border-light dark:hover:border-gray-700 transition-colors">
+                  <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
+                    W
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-semibold mb-2">Work Project 1</h4>
+                    <p className="text-muted dark:text-gray-400">
+                      Replace this with your actual professional work project. Include details about the technology stack, 
+                      your role, key achievements, and impact.
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">MindMap Pro</h3>
-                <p className="text-muted dark:text-gray-400">
-                  An intuitive iOS app for visual thinking and idea organization. Features real-time collaboration, 
-                  AI-powered suggestions, and seamless sync across all your devices. Perfect for students, professionals, 
-                  and creative thinkers.
-                </p>
+              )}
+            </div>
+            
+            <div>
+              <button 
+                onClick={() => setShowGptConnector(!showGptConnector)}
+                className="text-lg mb-6 text-muted border border-black rounded-lg px-4 py-2 inline-block cursor-pointer hover:opacity-80 transition-opacity"
+                style={{ fontFamily: 'Reef, var(--font-inter), system-ui, sans-serif', boxShadow: '0px 3px 0px black' }}
+              >
+                gpt connector
+              </button>
+              {showGptConnector && (
+                <div className="grid gap-6">
+                <div className="flex items-start gap-4 p-6 rounded-lg border border-light dark:border-gray-800 hover:border-light dark:hover:border-gray-700 transition-colors">
+                  <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
+                    P
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-semibold mb-2">Personal Project 1</h4>
+                    <p className="text-muted dark:text-gray-400">
+                      Replace with your personal project details. This could be an open source contribution, weekend hack, 
+                      mobile app, or passion project.
+                    </p>
+                  </div>
+                </div>
               </div>
+              )}
             </div>
           </div>
         </Section>
