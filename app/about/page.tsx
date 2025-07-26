@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import AppLayout from '@/components/ui/layout/AppLayout'
 import Section from '@/components/ui/primitives/Section'
+import ButtonTile from '@/components/ui/primitives/ButtonTile'
 
 const sections = [
   { id: 'bio', label: 'hi 👋' },
@@ -32,13 +33,12 @@ export default function AboutPage() {
         <Section id="projects" hideTitle className="mb-64">
           <div className="space-y-16">
             <div>
-              <button 
+              <ButtonTile 
                 onClick={() => setShowVibeCode(!showVibeCode)}
-                className="text-lg mb-6 text-muted border border-black rounded-lg px-4 py-2 inline-block cursor-pointer hover:opacity-80 transition-opacity"
-                style={{ fontFamily: 'Reef, var(--font-inter), system-ui, sans-serif', boxShadow: '0px 3px 0px black' }}
+                className="mb-6"
               >
                 vibe coding
-              </button>
+              </ButtonTile>
               {showVibeCode && (
                 <div className="grid gap-6">
                 <div className="flex items-start gap-4 p-6 rounded-lg border border-light dark:border-gray-800 hover:border-light dark:hover:border-gray-700 transition-colors">
@@ -58,13 +58,12 @@ export default function AboutPage() {
             </div>
             
             <div>
-              <button 
+              <ButtonTile 
                 onClick={() => setShowGptConnector(!showGptConnector)}
-                className="text-lg mb-6 text-muted border border-black rounded-lg px-4 py-2 inline-block cursor-pointer hover:opacity-80 transition-opacity"
-                style={{ fontFamily: 'Reef, var(--font-inter), system-ui, sans-serif', boxShadow: '0px 3px 0px black' }}
+                className="mb-6"
               >
                 gpt connector
-              </button>
+              </ButtonTile>
               {showGptConnector && (
                 <div className="grid gap-6">
                 <div className="flex items-start gap-4 p-6 rounded-lg border border-light dark:border-gray-800 hover:border-light dark:hover:border-gray-700 transition-colors">
