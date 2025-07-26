@@ -1,7 +1,11 @@
+'use client'
+
 import { Button } from '../primitives/Button'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export default function NavBar() {
+  const pathname = usePathname()
   return (
     <nav className="sticky top-0 z-50 w-full bg-[var(--color-surface)] relative after:absolute after:inset-x-0 after:top-full after:h-4 after:bg-gradient-to-b after:from-[var(--color-surface)] after:to-transparent after:pointer-events-none">
       {/* Grid matching the main layout: left sidebar | content | right sidebar */}
@@ -28,7 +32,7 @@ export default function NavBar() {
                 <Button 
                   variant="secondary" 
                   size="lg"
-                  style={{ fontFamily: 'Reef, var(--font-inter), system-ui, sans-serif' }}
+                  className={pathname === '/' ? 'text-[var(--color-text)]' : ''}
                 >
                   writing
                 </Button>
@@ -37,7 +41,7 @@ export default function NavBar() {
                 <Button 
                   variant="secondary" 
                   size="lg"
-                  style={{ fontFamily: 'Reef, var(--font-inter), system-ui, sans-serif' }}
+                  className={pathname === '/about' ? 'text-[var(--color-text)]' : ''}
                 >
                   about
                 </Button>

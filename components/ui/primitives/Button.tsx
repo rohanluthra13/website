@@ -21,12 +21,15 @@ export function Button({
     items-center
     justify-center
     font-medium
-    rounded-[var(--button-border-radius)]
-    transition-all
+    rounded-lg
+    transition-opacity
     duration-[var(--transition-fast)]
     focus:outline-none
+    hover:opacity-80
+    cursor-pointer
     disabled:opacity-[var(--button-disabled-opacity)]
     disabled:cursor-not-allowed
+    disabled:hover:opacity-[var(--button-disabled-opacity)]
     button-press
     touch-target
   `
@@ -34,14 +37,10 @@ export function Button({
   const variantStyles = {
     primary: `
       bg-[var(--button-primary-bg)]
-      text-[var(--button-primary-text)]
-      hover:bg-[var(--button-primary-hover)]
       disabled:hover:bg-[var(--button-primary-bg)]
     `,
     secondary: `
       bg-[var(--button-secondary-bg)]
-      text-[var(--button-secondary-text)]
-      hover:bg-[var(--button-secondary-hover)]
       disabled:hover:bg-[var(--button-secondary-bg)]
     `
   }
@@ -49,7 +48,7 @@ export function Button({
   const sizeStyles = {
     sm: 'px-3 py-1.5 text-sm',
     md: 'px-[var(--button-padding)] py-[var(--button-padding)] text-base',
-    lg: 'px-6 py-3 text-lg'
+    lg: 'px-4 py-2 text-lg'
   }
 
   return (
@@ -58,8 +57,13 @@ export function Button({
         ${baseStyles}
         ${variantStyles[variant]}
         ${sizeStyles[size]}
+        ${!className.includes('text-') ? 'text-muted' : ''}
         ${className}
       `}
+      style={{ 
+        fontFamily: 'Reef, var(--font-inter), system-ui, sans-serif',
+        ...props.style 
+      }}
       disabled={disabled || loading}
       {...props}
     >
