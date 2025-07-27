@@ -1,7 +1,7 @@
 'use client'
 
 import { memo, useState } from 'react'
-import { ChevronsRightLeft, ChevronsLeftRight, ArrowLeft } from 'lucide-react'
+import { ChevronsRightLeft, ChevronsLeftRight, ChevronLeft } from 'lucide-react'
 import { type WidthMode } from '../../../types/layout'
 import { type FontMode } from '../../../types/theme'
 import ButtonTile from './ButtonTile'
@@ -56,86 +56,103 @@ const DisplayOptions = memo(function DisplayOptions({
   }
 
   return (
-    <div className="w-[213px] h-[160px] p-3 relative">
-      {/* Font Row */}
-      <div className="flex items-center gap-5 mb-5">
-        <span className="text-s text-[var(--color-text-primary)] w-20" style={{ fontFamily: 'Reef, sans-serif' }}>font</span>
-        
-        <ButtonTile
-          onClick={() => setShowFontPicker(!showFontPicker)}
-          className="!text-xs !px-2 !py-1"
-          style={{ 
-            fontFamily: currentFont.cssVar,
-            boxShadow: '0px 3px 0px black'
-          }}
-          title="Change font"
-          aria-label="Change font family"
-        >
-          {currentFont.label}
-        </ButtonTile>
-      </div>
-
-      {/* Width Row */}
-      <div className="flex items-center gap-5">
-        <span className="text-s text-[var(--color-text-primary)] w-20" style={{ fontFamily: 'Reef, sans-serif' }}>page width</span>
-        
-        <div className="flex items-center gap-2">
-          <ButtonTile
-            onClick={handleNarrow}
-            disabled={!canNarrow}
-            className={`!p-1 ${!canNarrow ? 'opacity-50 cursor-not-allowed' : ''}`}
-            title="Make narrower"
-            aria-label="Make content narrower"
-          >
-            <ChevronsRightLeft size={16} />
-          </ButtonTile>
+    <div className="w-[213px] h-[200px] relative overflow-hidden">
+      {/* Main View */}
+      <div 
+        className={`absolute inset-0 p-3 transition-transform duration-300 ease-in-out ${
+          showFontPicker ? '-translate-x-full' : 'translate-x-0'
+        }`}
+      >
+        {/* Font Row */}
+        <div className="flex items-center gap-5 mb-5">
+          <span className="text-s text-[var(--color-text-primary)] w-20" style={{ fontFamily: 'Reef, sans-serif' }}>font</span>
           
           <ButtonTile
-            onClick={handleWiden}
-            disabled={!canWiden}
-            className={`!p-1 ${!canWiden ? 'opacity-50 cursor-not-allowed' : ''}`}
-            title="Make wider"
-            aria-label="Make content wider"
+            onClick={() => setShowFontPicker(!showFontPicker)}
+            className="!text-xs !px-2 !py-1"
+            style={{ 
+              fontFamily: currentFont.cssVar,
+              boxShadow: '0px 3px 0px black'
+            }}
+            title="Change font"
+            aria-label="Change font family"
           >
-            <ChevronsLeftRight size={16} />
+            {currentFont.label}
           </ButtonTile>
+        </div>
+
+        {/* Width Row */}
+        <div className="flex items-center gap-5">
+          <span className="text-s text-[var(--color-text-primary)] w-20" style={{ fontFamily: 'Reef, sans-serif' }}>page width</span>
+          
+          <div className="flex items-center gap-2">
+            <ButtonTile
+              onClick={handleNarrow}
+              disabled={!canNarrow}
+              className={`!p-1 ${!canNarrow ? 'opacity-50 cursor-not-allowed' : ''}`}
+              title="Make narrower"
+              aria-label="Make content narrower"
+            >
+              <ChevronsRightLeft size={16} />
+            </ButtonTile>
+            
+            <ButtonTile
+              onClick={handleWiden}
+              disabled={!canWiden}
+              className={`!p-1 ${!canWiden ? 'opacity-50 cursor-not-allowed' : ''}`}
+              title="Make wider"
+              aria-label="Make content wider"
+            >
+              <ChevronsLeftRight size={16} />
+            </ButtonTile>
+          </div>
         </div>
       </div>
 
       {/* Font Picker Overlay */}
-      {showFontPicker && (
-        <div className="absolute inset-0 bg-[var(--color-surface)] rounded z-10 p-3 flex flex-col">
-          <div className="flex items-center gap-3 mb-3 flex-shrink-0">
-            <button
-              onClick={() => setShowFontPicker(false)}
-              className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
-              aria-label="Back to main options"
-            >
-              <ArrowLeft size={14} />
-            </button>
-          </div>
-          
-          <div className="flex-1 overflow-y-auto scrollbar-thin">
-            <div className="space-y-1 pr-1">
-              {fontOptions.map((fontOption) => (
-                <button
-                  key={fontOption.value}
-                  onClick={() => handleFontSelect(fontOption.value)}
-                  className={`
-                    w-full text-left px-2 py-2 text-xs rounded transition-all duration-200 
-                    hover:bg-[var(--color-background)] hover:font-semibold text-[var(--color-text-primary)]
-                    ${font === fontOption.value ? 'font-semibold' : 'font-normal'}
-                  `}
-                  style={{ fontFamily: fontOption.cssVar }}
-                  title={`Switch to ${fontOption.label}`}
-                >
-                  {fontOption.label}
-                </button>
-              ))}
-            </div>
+      <div 
+        className={`absolute inset-0 bg-[var(--color-surface)] rounded p-3 flex flex-col transition-transform duration-300 ease-in-out ${
+          showFontPicker ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="flex items-center gap-3 mb-3 flex-shrink-0">
+          <button
+            onClick={() => setShowFontPicker(false)}
+            className="text-muted hover:opacity-70 transition-opacity cursor-pointer"
+            aria-label="Back to main options"
+          >
+            <ChevronLeft size={14} />
+          </button>
+          <span 
+            className="text-xs text-muted italic"
+            style={{ fontFamily: 'Reef, sans-serif' }}
+          >
+            select a font
+          </span>
+        </div>
+        
+        <div className="flex-1 overflow-y-auto scrollbar-thin">
+          <div className="grid grid-cols-2 gap-x-2 gap-y-3 ml-auto w-fit">
+            {fontOptions.map((fontOption) => (
+              <ButtonTile
+                key={fontOption.value}
+                onClick={() => handleFontSelect(fontOption.value)}
+                className={`
+                  !text-xs !px-2 !py-1 !w-[81px]
+                  ${font === fontOption.value ? 'font-semibold' : 'font-normal'}
+                `}
+                style={{ 
+                  fontFamily: fontOption.cssVar,
+                  boxShadow: '0px 3px 0px black'
+                }}
+                title={`Switch to ${fontOption.label}`}
+              >
+                {fontOption.label}
+              </ButtonTile>
+            ))}
           </div>
         </div>
-      )}
+      </div>
     </div>
   )
 })

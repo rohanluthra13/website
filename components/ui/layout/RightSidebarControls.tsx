@@ -1,6 +1,6 @@
 'use client'
 
-import { memo, useState, useEffect, useRef } from 'react'
+import { memo, useState } from 'react'
 import { useLayout } from '../providers/LayoutProvider'
 import { useTheme } from '../providers/ThemeProvider'
 import DisplayOptions from '../primitives/DisplayOptions'
@@ -9,21 +9,7 @@ const RightSidebarControls = memo(function RightSidebarControls() {
   const { isMobile, contentWidth, setContentWidth } = useLayout()
   const { font, setFont } = useTheme()
   const [isOpen, setIsOpen] = useState(false)
-  const containerRef = useRef<HTMLDivElement>(null)
 
-  // Handle click outside to close dropdown
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
-        setIsOpen(false)
-      }
-    }
-
-    if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside)
-      return () => document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [isOpen])
 
   // Hide on mobile
   if (isMobile) {
@@ -31,7 +17,7 @@ const RightSidebarControls = memo(function RightSidebarControls() {
   }
 
   return (
-    <div ref={containerRef} className="fixed right-4 z-50" style={{ 
+    <div className="fixed right-4 z-50" style={{ 
       top: '80px' 
     }}>
           <button
