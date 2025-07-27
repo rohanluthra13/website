@@ -2,6 +2,8 @@ import { Metadata } from 'next'
 import AppLayout from '@/components/ui/layout/AppLayout'
 import Section from '@/components/ui/primitives/Section'
 import CollapsibleSection from '@/components/ui/primitives/CollapsibleSection'
+import { Github, Linkedin, Twitter } from 'lucide-react'
+import EmailLink from '@/components/ui/primitives/EmailLink'
 
 export const metadata: Metadata = {
   title: 'About',
@@ -25,13 +27,47 @@ export default function AboutPage() {
       <div className="px-8 py-12">
         <div className="h-48"></div>
         <Section id="bio" hideTitle className="mb-64">
-          <p className="text-lg leading-relaxed text-strong dark:text-gray-300">
+          <p className="text-lg leading-relaxed text-strong dark:text-gray-300 mb-8">
             I'm a creative technologist passionate about building intuitive digital experiences that blend form and function. 
             With a background in both design and engineering, I enjoy exploring the intersection of aesthetics and technology. 
             When I'm not coding, you'll find me experimenting with new frameworks, contributing to open-source projects, or 
             diving deep into the latest developments in AI and machine learning. I believe in the power of technology to solve 
             real-world problems and am constantly seeking new challenges that push the boundaries of what's possible.
           </p>
+          
+          <div className="flex gap-4 items-center">
+            <a
+              href="https://github.com/yourusername"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative p-2 rounded-lg bg-[var(--color-background)] hover:bg-[var(--color-surface)] transition-all duration-200"
+              aria-label="GitHub"
+            >
+              <Github size={20} className="text-[var(--color-text-secondary)] group-hover:text-[var(--color-text-primary)] transition-colors" />
+            </a>
+            
+            <a
+              href="https://linkedin.com/in/yourusername"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative p-2 rounded-lg bg-[var(--color-background)] hover:bg-[var(--color-surface)] transition-all duration-200"
+              aria-label="LinkedIn"
+            >
+              <Linkedin size={20} className="text-[var(--color-text-secondary)] group-hover:text-[var(--color-text-primary)] transition-colors" />
+            </a>
+            
+            <a
+              href="https://twitter.com/yourusername"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative p-2 rounded-lg bg-[var(--color-background)] hover:bg-[var(--color-surface)] transition-all duration-200"
+              aria-label="Twitter"
+            >
+              <Twitter size={20} className="text-[var(--color-text-secondary)] group-hover:text-[var(--color-text-primary)] transition-colors" />
+            </a>
+            
+            <EmailLink email="your.email@example.com" />
+          </div>
         </Section>
 
         <Section id="projects" hideTitle className="mb-64">
