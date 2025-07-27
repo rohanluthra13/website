@@ -7,11 +7,11 @@ import { type FontMode } from '../../../types/theme'
 import ButtonTile from './ButtonTile'
 
 const fontOptions: { value: FontMode; label: string; cssVar: string }[] = [
+  { value: 'reef', label: 'Reef', cssVar: 'var(--font-family-reef)' },
   { value: 'geist', label: 'Geist', cssVar: 'var(--font-geist-sans), system-ui, sans-serif' },
   { value: 'inter', label: 'Inter', cssVar: 'var(--font-inter), system-ui, sans-serif' },
   { value: 'playfair', label: 'Playfair', cssVar: 'var(--font-playfair), serif' },
-  { value: 'spacemono', label: 'Space Mono', cssVar: 'var(--font-space-mono), monospace' },
-  { value: 'system', label: 'System', cssVar: 'system-ui, -apple-system, sans-serif' }
+  { value: 'spacemono', label: 'Space Mono', cssVar: 'var(--font-space-mono), monospace' }
 ]
 
 interface DisplayOptionsProps {

@@ -43,7 +43,7 @@ export function ErrorCard({
     <div className={`text-left ${className}`}>
       <p 
         className="text-text-primary cursor-pointer hover:opacity-70 transition-opacity" 
-        style={{ fontFamily: 'Reef, var(--font-inter), system-ui, sans-serif' }}
+        style={{ fontFamily: 'var(--font-family-reef)' }}
         onClick={() => router.push('/')}
       >
         sorry something went wrong, redirecting...

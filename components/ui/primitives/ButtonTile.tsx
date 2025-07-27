@@ -10,7 +10,7 @@ export default function ButtonTile({ children, className = '', ...props }: Butto
     <button
       className={`text-lg text-muted border border-black rounded-lg px-4 py-2 inline-block cursor-pointer hover:opacity-80 transition-opacity ${className}`}
       style={{ 
-        fontFamily: 'Reef, var(--font-inter), system-ui, sans-serif', 
+        fontFamily: 'var(--font-family-reef)', 
         boxShadow: '0px 3px 0px black' 
       }}
       {...props}

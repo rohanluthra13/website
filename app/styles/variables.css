@@ -58,7 +58,8 @@
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05);
 
   /* Typography - Font families */
-  --font-family-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  --font-family-reef: 'Reef', system-ui, -apple-system, sans-serif;
+  --font-family-sans: 'Reef', system-ui, -apple-system, sans-serif;
   --font-family-mono: var(--font-geist-mono), 'SF Mono', Monaco, monospace;
 
   /* Transitions */

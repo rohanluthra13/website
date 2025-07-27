@@ -5,7 +5,7 @@ import { type FontMode, type ThemeContextType } from '../../../types/theme'
 
 // Type guard for localStorage validation
 const isValidFontMode = (value: string): value is FontMode => {
-  return ['geist', 'inter', 'playfair', 'spacemono', 'system'].includes(value)
+  return ['reef', 'geist', 'inter', 'playfair', 'spacemono'].includes(value)
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
@@ -23,7 +23,7 @@ interface ThemeProviderProps {
 }
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
-  const [font, setFontState] = useState<FontMode>('geist')
+  const [font, setFontState] = useState<FontMode>('reef')
 
   // Load font preference from localStorage on mount
   useEffect(() => {
@@ -36,12 +36,15 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
   // Update font family based on font mode
   useEffect(() => {
     // Remove all font classes first
-    document.body.classList.remove('font-geist', 'font-inter', 'font-playfair', 'font-spacemono')
+    document.body.classList.remove('font-reef', 'font-geist', 'font-inter', 'font-playfair', 'font-spacemono')
     
     // Add the selected font class
     switch (font) {
-      case 'geist':
+      case 'reef':
         // Default font, no additional class needed
+        break
+      case 'geist':
+        document.body.classList.add('font-geist')
         break
       case 'inter':
         document.body.classList.add('font-inter')
@@ -51,9 +54,6 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
         break
       case 'spacemono':
         document.body.classList.add('font-spacemono')
-        break
-      case 'system':
-        // Use system font by not adding any class
         break
     }
   }, [font])

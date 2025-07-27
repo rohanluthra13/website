@@ -53,7 +53,7 @@ const IconMenuButton = memo(function IconMenuButton({
           <span 
             className="text-xs text-[var(--color-text-secondary)] font-normal tracking-wide" 
             style={{ 
-              fontFamily: 'Reef, var(--font-inter), system-ui, sans-serif',
+              fontFamily: 'var(--font-family-reef)',
               textTransform: 'none'
             }}
           >

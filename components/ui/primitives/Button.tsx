@@ -61,7 +61,7 @@ export function Button({
         ${className}
       `}
       style={{ 
-        fontFamily: 'Reef, var(--font-inter), system-ui, sans-serif',
+        fontFamily: 'var(--font-family-reef)',
         ...props.style 
       }}
       disabled={disabled || loading}

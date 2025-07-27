@@ -1,4 +1,4 @@
-export type FontMode = 'geist' | 'inter' | 'playfair' | 'spacemono' | 'system'
+export type FontMode = 'reef' | 'geist' | 'inter' | 'playfair' | 'spacemono'
 
 export interface ThemeContextType {
   font: FontMode

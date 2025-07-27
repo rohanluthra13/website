@@ -21,7 +21,7 @@ export default function NavBar() {
             <Link 
               href="/" 
               className="text-2xl font-medium text-[var(--color-text)]"
-              style={{ fontFamily: 'Reef, var(--font-inter), system-ui, sans-serif' }}
+              style={{ fontFamily: 'var(--font-family-reef)' }}
             >
               rohanluthra
             </Link>
