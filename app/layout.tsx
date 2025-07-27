@@ -52,6 +52,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            // Prevent ethereum-related errors on mobile
+            if (typeof window !== 'undefined' && !window.ethereum) {
+              window.ethereum = {
+                selectedAddress: undefined,
+                isMetaMask: false,
+                request: () => Promise.reject(new Error('No Web3 provider available')),
+                on: () => {},
+                removeListener: () => {}
+              };
+            }
+          `
+        }} />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${playfair.variable} ${spaceMono.variable} ${permanentMarker.variable} antialiased`}
       >

@@ -9,7 +9,6 @@ const RightSidebarControls = memo(function RightSidebarControls() {
   const { isMobile, contentWidth, setContentWidth } = useLayout()
   const { font, setFont } = useTheme()
   const [isOpen, setIsOpen] = useState(false)
-  const [isHovered, setIsHovered] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
 
   // Handle click outside to close dropdown
@@ -37,8 +36,6 @@ const RightSidebarControls = memo(function RightSidebarControls() {
     }}>
           <button
             onClick={() => setIsOpen(!isOpen)}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
             className="p-2 rounded-lg bg-[var(--color-background)] hover:bg-[var(--color-surface)] transition-all duration-200 flex items-center justify-center"
             aria-label="display settings"
             aria-expanded={isOpen}
@@ -50,21 +47,6 @@ const RightSidebarControls = memo(function RightSidebarControls() {
               Aa
             </span>
           </button>
-
-          {/* Custom Hover Label - positioned to the left */}
-          {isHovered && !isOpen && (
-            <div className="absolute top-1/2 right-full mr-2 -translate-y-1/2 px-2 py-1 whitespace-nowrap">
-              <span 
-                className="text-xs text-[var(--color-text-secondary)] font-normal tracking-wide" 
-                style={{ 
-                  fontFamily: 'Reef, var(--font-inter), system-ui, sans-serif',
-                  textTransform: 'none'
-                }}
-              >
-                display settings
-              </span>
-            </div>
-          )}
 
           {/* Dropdown Menu - positioned to the left */}
           {isOpen && (

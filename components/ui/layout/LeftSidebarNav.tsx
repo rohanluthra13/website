@@ -27,9 +27,9 @@ export default function LeftSidebarNav({ sections }: LeftSidebarNavProps) {
         const containerRect = document.querySelector('main')?.getBoundingClientRect()
         
         if (containerRect) {
-          // Calculate the center of the section relative to the main container
-          const sectionCenter = rect.top - containerRect.top + rect.height / 2
-          positions.push({ id, top: sectionCenter })
+          // Calculate the top of the section relative to the main container with small offset
+          const sectionTop = rect.top - containerRect.top + 10
+          positions.push({ id, top: sectionTop })
         }
       }
     })
@@ -109,7 +109,7 @@ export default function LeftSidebarNav({ sections }: LeftSidebarNavProps) {
             `}
             style={{ 
               top: `${top}px`,
-              transform: 'translateY(-50%) translateZ(0)',
+              transform: 'translateZ(0)',
               fontFamily: 'Reef',
               fontSize: '1.5rem',
               lineHeight: '1.1',
