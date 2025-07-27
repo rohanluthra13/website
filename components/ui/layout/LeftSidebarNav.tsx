@@ -47,7 +47,7 @@ export default function LeftSidebarNav({ sections }: LeftSidebarNavProps) {
         })
       },
       {
-        rootMargin: '-50% 0px',
+        rootMargin: '-30% 0px',
         threshold: 0
       }
     )
