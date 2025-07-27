@@ -1,5 +1,3 @@
-'use client'
-
 import { Metadata } from 'next'
 import AppLayout from '@/components/ui/layout/AppLayout'
 import Link from 'next/link'

@@ -138,8 +138,8 @@ const DisplayOptions = memo(function DisplayOptions({
                 key={fontOption.value}
                 onClick={() => handleFontSelect(fontOption.value)}
                 className={`
-                  !text-xs !px-2 !py-1 !w-[81px]
-                  ${font === fontOption.value ? 'font-semibold' : 'font-normal'}
+                  !text-xs !px-2 !py-1 !w-[81px] font-normal
+                  ${font === fontOption.value ? '!text-[var(--color-primary)]' : ''}
                 `}
                 style={{ 
                   fontFamily: fontOption.cssVar,

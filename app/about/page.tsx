@@ -1,10 +1,7 @@
-'use client'
-
-import { useState } from 'react'
 import { Metadata } from 'next'
 import AppLayout from '@/components/ui/layout/AppLayout'
 import Section from '@/components/ui/primitives/Section'
-import ButtonTile from '@/components/ui/primitives/ButtonTile'
+import CollapsibleSection from '@/components/ui/primitives/CollapsibleSection'
 
 export const metadata: Metadata = {
   title: 'About',
@@ -22,8 +19,6 @@ const sections = [
 ]
 
 export default function AboutPage() {
-  const [showVibeCode, setShowVibeCode] = useState(true)
-  const [showGptConnector, setShowGptConnector] = useState(true)
 
   return (
     <AppLayout sections={sections}>
@@ -41,15 +36,8 @@ export default function AboutPage() {
 
         <Section id="projects" hideTitle className="mb-64">
           <div className="space-y-16">
-            <div>
-              <ButtonTile 
-                onClick={() => setShowVibeCode(!showVibeCode)}
-                className="mb-6"
-              >
-                vibe coding
-              </ButtonTile>
-              {showVibeCode && (
-                <div className="grid gap-6">
+            <CollapsibleSection title="vibe coding">
+              <div className="grid gap-6">
                 <div className="flex items-start gap-4 p-6 rounded-lg border border-light dark:border-gray-800 hover:border-light dark:hover:border-gray-700 transition-colors">
                   <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
                     W
@@ -63,18 +51,10 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
-              )}
-            </div>
+            </CollapsibleSection>
             
-            <div>
-              <ButtonTile 
-                onClick={() => setShowGptConnector(!showGptConnector)}
-                className="mb-6"
-              >
-                gpt connector
-              </ButtonTile>
-              {showGptConnector && (
-                <div className="grid gap-6">
+            <CollapsibleSection title="gpt connector">
+              <div className="grid gap-6">
                 <div className="flex items-start gap-4 p-6 rounded-lg border border-light dark:border-gray-800 hover:border-light dark:hover:border-gray-700 transition-colors">
                   <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
                     P
@@ -88,8 +68,7 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
-              )}
-            </div>
+            </CollapsibleSection>
           </div>
         </Section>
 
