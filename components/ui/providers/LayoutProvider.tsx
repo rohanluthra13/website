@@ -25,7 +25,6 @@ interface LayoutProviderProps {
 export function LayoutProvider({ children }: LayoutProviderProps) {
   const [leftSidebarOpen, setLeftSidebarOpen] = useState(true)
   const [rightSidebarOpen, setRightSidebarOpen] = useState(true)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
   const [contentWidth, setContentWidthState] = useState<WidthMode>('narrower')
 
@@ -52,11 +51,10 @@ export function LayoutProvider({ children }: LayoutProviderProps) {
       const mobile = window.innerWidth < 768
       setIsMobile(mobile)
       
-      // Auto-close sidebars and mobile menu on mobile
+      // Auto-close sidebars on mobile
       if (mobile) {
         setLeftSidebarOpen(false)
         setRightSidebarOpen(false)
-        setMobileMenuOpen(false)
       } else {
         // Restore saved preferences on desktop
         const savedLeftSidebar = localStorage.getItem('leftSidebarOpen')
@@ -143,19 +141,16 @@ export function LayoutProvider({ children }: LayoutProviderProps) {
   const value = useMemo<LayoutContextType>(() => ({
     leftSidebarOpen,
     rightSidebarOpen,
-    mobileMenuOpen,
     isMobile,
     contentWidth,
     toggleLeftSidebar,
     toggleRightSidebar,
     setLeftSidebarOpen,
     setRightSidebarOpen,
-    setMobileMenuOpen,
     setContentWidth,
   }), [
     leftSidebarOpen,
     rightSidebarOpen,
-    mobileMenuOpen,
     isMobile,
     contentWidth,
     toggleLeftSidebar,

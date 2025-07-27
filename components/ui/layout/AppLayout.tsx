@@ -2,7 +2,6 @@
 
 import RightSidebarControls from './RightSidebarControls'
 import LeftSidebarNav from './LeftSidebarNav'
-import { MobileNav, MobileHeader } from './MobileNav'
 import Footer from './Footer'
 import { type SectionData } from '../../../types/navigation'
 
@@ -16,13 +15,10 @@ export default function AppLayout({ children, sections }: AppLayoutProps) {
   return (
     <>
       <div className="min-h-screen bg-[var(--color-background)] flex flex-col">
-        {/* Mobile Header */}
-        <MobileHeader />
-
         {/* 3-Column CSS Grid Layout: Left Sidebar - Main Content - Right Sidebar */}
-        <div className="grid grid-cols-[var(--sidebar-left-width)_1fr_var(--sidebar-right-width)] flex-1">
+        <div className="grid grid-cols-1 md:grid-cols-[var(--sidebar-left-width)_1fr_var(--sidebar-right-width)] flex-1">
           {/* Left Sidebar - Navigation */}
-          <div className="bg-[var(--color-surface)]">
+          <div className="hidden md:block bg-[var(--color-surface)]">
             {sections && <LeftSidebarNav sections={sections} />}
           </div>
 
@@ -34,7 +30,7 @@ export default function AppLayout({ children, sections }: AppLayoutProps) {
           </main>
 
           {/* Right Sidebar - Empty container like left sidebar */}
-          <div className="bg-[var(--color-surface)] relative">
+          <div className="hidden md:block bg-[var(--color-surface)] relative">
             {/* The sidebar is just an empty container */}
           </div>
         </div>
@@ -45,9 +41,6 @@ export default function AppLayout({ children, sections }: AppLayoutProps) {
 
       {/* Floating Display Settings Button - Outside the grid */}
       <RightSidebarControls />
-
-      {/* Mobile Navigation */}
-      <MobileNav />
     </>
   )
 }
