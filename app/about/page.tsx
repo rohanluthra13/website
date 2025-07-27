@@ -56,7 +56,7 @@ export default function AboutPage() {
                         </li>
                         <li className="flex items-start gap-2">
                           <span className="text-muted">•</span>
-                          <span>app store link coming soon</span>
+                          <span className="italic">currently on testflight</span>
                         </li>
                       </ul>
                     </div>
