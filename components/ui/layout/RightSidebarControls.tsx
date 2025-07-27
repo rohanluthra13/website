@@ -48,9 +48,9 @@ const RightSidebarControls = memo(function RightSidebarControls() {
             </span>
           </button>
 
-          {/* Dropdown Menu - positioned to the left */}
+          {/* Dropdown Menu - positioned below */}
           {isOpen && (
-            <div className="absolute top-0 right-full mr-2 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg shadow-md">
+            <div className="absolute top-full right-0 mt-2 bg-[var(--color-surface)] rounded-lg">
               <DisplayOptions
                 contentWidth={contentWidth}
                 onContentWidthChange={setContentWidth}

@@ -4,6 +4,7 @@ import { memo, useState } from 'react'
 import { ChevronsRightLeft, ChevronsLeftRight, ArrowLeft } from 'lucide-react'
 import { type WidthMode } from '../../../types/layout'
 import { type FontMode } from '../../../types/theme'
+import ButtonTile from './ButtonTile'
 
 const fontOptions: { value: FontMode; label: string; cssVar: string }[] = [
   { value: 'geist', label: 'Geist', cssVar: 'var(--font-geist-sans), system-ui, sans-serif' },
@@ -55,57 +56,49 @@ const DisplayOptions = memo(function DisplayOptions({
   }
 
   return (
-    <div className="w-[160px] h-[160px] p-3 relative">
+    <div className="w-[213px] h-[160px] p-3 relative">
       {/* Font Row */}
-      <div className="flex items-center justify-between mb-3">
-        <span className="text-xs text-[var(--color-text-primary)]">Font</span>
+      <div className="flex items-center gap-5 mb-5">
+        <span className="text-s text-[var(--color-text-primary)] w-20" style={{ fontFamily: 'Reef, sans-serif' }}>font</span>
         
-        <button
+        <ButtonTile
           onClick={() => setShowFontPicker(!showFontPicker)}
-          className="px-2 py-1 text-xs rounded border border-[var(--color-border-dark)] text-[var(--color-text-primary)] hover:bg-[var(--color-surface)] transition-all duration-200"
+          className="!text-xs !px-2 !py-1"
+          style={{ 
+            fontFamily: currentFont.cssVar,
+            boxShadow: '0px 3px 0px black'
+          }}
           title="Change font"
           aria-label="Change font family"
         >
           {currentFont.label}
-        </button>
+        </ButtonTile>
       </div>
 
       {/* Width Row */}
-      <div className="flex items-center justify-between">
-        <span className="text-xs text-[var(--color-text-primary)]">Width</span>
+      <div className="flex items-center gap-5">
+        <span className="text-s text-[var(--color-text-primary)] w-20" style={{ fontFamily: 'Reef, sans-serif' }}>page width</span>
         
         <div className="flex items-center gap-2">
-          <button
+          <ButtonTile
             onClick={handleNarrow}
             disabled={!canNarrow}
-            className={`
-              p-1 rounded border transition-all duration-200
-              ${canNarrow 
-                ? 'text-[var(--color-text-primary)] hover:bg-[var(--color-surface)] border-[var(--color-border-dark)]' 
-                : 'text-[var(--color-text-disabled)] cursor-not-allowed border-[var(--color-border)]'
-              }
-            `}
+            className={`!p-1 ${!canNarrow ? 'opacity-50 cursor-not-allowed' : ''}`}
             title="Make narrower"
             aria-label="Make content narrower"
           >
             <ChevronsRightLeft size={16} />
-          </button>
+          </ButtonTile>
           
-          <button
+          <ButtonTile
             onClick={handleWiden}
             disabled={!canWiden}
-            className={`
-              p-1 rounded border transition-all duration-200
-              ${canWiden 
-                ? 'text-[var(--color-text-primary)] hover:bg-[var(--color-surface)] border-[var(--color-border-dark)]' 
-                : 'text-[var(--color-text-disabled)] cursor-not-allowed border-[var(--color-border)]'
-              }
-            `}
+            className={`!p-1 ${!canWiden ? 'opacity-50 cursor-not-allowed' : ''}`}
             title="Make wider"
             aria-label="Make content wider"
           >
             <ChevronsLeftRight size={16} />
-          </button>
+          </ButtonTile>
         </div>
       </div>
 
