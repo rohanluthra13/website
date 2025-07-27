@@ -38,36 +38,37 @@ export default function AboutPage() {
           <div className="space-y-16">
             <CollapsibleSection title="vibe coding">
               <div className="grid gap-6">
-                <div className="flex items-start gap-4 p-6 rounded-lg border border-light dark:border-gray-800 hover:border-light dark:hover:border-gray-700 transition-colors">
-                  <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
-                    W
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-semibold mb-2">Work Project 1</h4>
-                    <p className="text-muted dark:text-gray-400">
-                      Replace this with your actual professional work project. Include details about the technology stack, 
-                      your role, key achievements, and impact.
-                    </p>
+                <div className="p-6 rounded-lg transition-colors">
+                  <h4 className="text-lg font-medium mb-4">cryptogram <span className="italic">- a free no-ads daily puzzle iOS app</span></h4>
+                  <div className="flex items-start gap-4">
+                    <div className="w-16 h-16 rounded-xl shadow-[0_5px_15px_rgba(0,0,0,0.3)] flex-shrink-0">
+                      <img 
+                        src="/cryptogramicon.png" 
+                        alt="Cryptogram app icon" 
+                        className="w-full h-full rounded-xl"
+                      />
+                    </div>
+                    <div>
+                      <ul className="text-muted dark:text-gray-400 space-y-1">
+                        <li className="flex items-start gap-2">
+                          <span className="text-muted">•</span>
+                          <span>i like daily puzzle apps. but i don't like ads. i had a cryptogram app with too many ads and decided to see how hard it would be to just make my own. so here we are.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-muted">•</span>
+                          <span>app store link coming soon</span>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
             </CollapsibleSection>
             
             <CollapsibleSection title="gpt connector">
-              <div className="grid gap-6">
-                <div className="flex items-start gap-4 p-6 rounded-lg border border-light dark:border-gray-800 hover:border-light dark:hover:border-gray-700 transition-colors">
-                  <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
-                    P
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-semibold mb-2">Personal Project 1</h4>
-                    <p className="text-muted dark:text-gray-400">
-                      Replace with your personal project details. This could be an open source contribution, weekend hack, 
-                      mobile app, or passion project.
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <p className="text-muted dark:text-gray-400 italic ml-4">
+                coming soon
+              </p>
             </CollapsibleSection>
           </div>
         </Section>
