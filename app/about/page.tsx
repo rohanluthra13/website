@@ -62,6 +62,19 @@ export default function AboutPage() {
                     </div>
                   </div>
                 </div>
+                <div className="p-6 rounded-lg transition-colors">
+                  <h4 className="text-lg font-medium mb-4">this website <span className="italic">- to see if i could do a personal web app</span></h4>
+                  <ul className="text-muted dark:text-gray-400 space-y-1">
+                    <li className="flex items-start gap-2">
+                      <span className="text-muted">•</span>
+                      <span>i wanted to build my own web app from scratch, partly to see if I could, partly just to create</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-muted">•</span>
+                      <span>tech stack: next.js, typescript, deployed on vercel</span>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </CollapsibleSection>
             
