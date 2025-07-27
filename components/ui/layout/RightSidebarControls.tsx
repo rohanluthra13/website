@@ -36,12 +36,12 @@ const RightSidebarControls = memo(function RightSidebarControls() {
     }}>
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="p-2 rounded-lg bg-[var(--color-background)] hover:bg-[var(--color-surface)] transition-all duration-200 flex items-center justify-center"
+            className="group p-2 rounded-lg bg-[var(--color-background)] flex items-center justify-center cursor-pointer"
             aria-label="display settings"
             aria-expanded={isOpen}
           >
             <span 
-              className="font-permanent-marker text-[var(--color-text-primary)]" 
+              className="font-permanent-marker text-[var(--color-text-primary)] drop-shadow-md group-hover:drop-shadow-xl group-hover:scale-110 group-active:scale-95 group-active:drop-shadow-sm transition-all duration-150" 
               style={{ fontSize: '32px', lineHeight: '40px' }}
             >
               Aa
