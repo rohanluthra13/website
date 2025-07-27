@@ -26,7 +26,7 @@ export default function AboutPage() {
     <AppLayout sections={sections}>
       <div className="px-8 py-12">
         <div className="h-48"></div>
-        <Section id="bio" hideTitle className="mb-64">
+        <Section id="bio" title="hi 👋" hideTitle className="mb-64">
           <p className="text-lg leading-relaxed text-strong dark:text-gray-300 mb-8">
             I'm a creative technologist passionate about building intuitive digital experiences that blend form and function. 
             With a background in both design and engineering, I enjoy exploring the intersection of aesthetics and technology. 
@@ -59,6 +59,7 @@ export default function AboutPage() {
             <a
               href="https://github.com/yourusername"
               target="_blank"
+              
               rel="noopener noreferrer"
               className="group relative p-2 rounded-lg bg-[var(--color-background)] hover:bg-[var(--color-surface)] transition-all duration-200"
               aria-label="GitHub"
@@ -70,7 +71,7 @@ export default function AboutPage() {
           </div>
         </Section>
 
-        <Section id="projects" hideTitle className="mb-64">
+        <Section id="projects" title="some stuff i've been doing" hideTitle className="mb-64">
           <div className="space-y-16">
             <CollapsibleSection title="vibe coding">
               <div className="grid gap-6">
@@ -122,7 +123,7 @@ export default function AboutPage() {
           </div>
         </Section>
 
-        <Section id="reading" hideTitle className="mb-64">
+        <Section id="reading" title="some things i've been reading" hideTitle className="mb-64">
           <ul className="space-y-2 text-lg">
             <li className="flex items-center gap-2">
               <span className="text-muted">•</span>
@@ -157,7 +158,7 @@ export default function AboutPage() {
           </ul>
         </Section>
 
-        <Section id="tools" hideTitle className="mb-64">
+        <Section id="tools" title="some tools i like using" hideTitle className="mb-64">
           <ul className="space-y-2 text-lg">
             <li className="flex items-center gap-2">
               <span className="text-muted">•</span>
