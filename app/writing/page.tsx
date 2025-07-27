@@ -1,7 +1,16 @@
 'use client'
 
+import { Metadata } from 'next'
 import AppLayout from '@/components/ui/layout/AppLayout'
 import Link from 'next/link'
+
+export const metadata: Metadata = {
+  title: 'Writing',
+  description: 'Articles and thoughts from Rohan Luthra',
+  alternates: {
+    canonical: '/writing',
+  },
+}
 
 const posts = [
   {

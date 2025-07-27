@@ -1,9 +1,18 @@
 'use client'
 
 import { useState } from 'react'
+import { Metadata } from 'next'
 import AppLayout from '@/components/ui/layout/AppLayout'
 import Section from '@/components/ui/primitives/Section'
 import ButtonTile from '@/components/ui/primitives/ButtonTile'
+
+export const metadata: Metadata = {
+  title: 'About',
+  description: 'Learn more about Rohan Luthra',
+  alternates: {
+    canonical: '/about',
+  },
+}
 
 const sections = [
   { id: 'bio', label: 'hi 👋' },
