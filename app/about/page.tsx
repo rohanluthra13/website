@@ -37,16 +37,6 @@ export default function AboutPage() {
           
           <div className="flex gap-4 items-center">
             <a
-              href="https://github.com/yourusername"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative p-2 rounded-lg bg-[var(--color-background)] hover:bg-[var(--color-surface)] transition-all duration-200"
-              aria-label="GitHub"
-            >
-              <Github size={20} className="text-[var(--color-text-secondary)] group-hover:text-[var(--color-text-primary)] transition-colors" />
-            </a>
-            
-            <a
               href="https://linkedin.com/in/yourusername"
               target="_blank"
               rel="noopener noreferrer"
@@ -64,6 +54,16 @@ export default function AboutPage() {
               aria-label="Twitter"
             >
               <Twitter size={20} className="text-[var(--color-text-secondary)] group-hover:text-[var(--color-text-primary)] transition-colors" />
+            </a>
+            
+            <a
+              href="https://github.com/yourusername"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative p-2 rounded-lg bg-[var(--color-background)] hover:bg-[var(--color-surface)] transition-all duration-200"
+              aria-label="GitHub"
+            >
+              <Github size={20} className="text-[var(--color-text-secondary)] group-hover:text-[var(--color-text-primary)] transition-colors" />
             </a>
             
             <EmailLink email="your.email@example.com" />
