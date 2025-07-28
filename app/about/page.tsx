@@ -25,7 +25,7 @@ export default function AboutPage() {
   return (
     <AppLayout sections={sections}>
       <div className="px-8 py-12">
-        <div className="h-48"></div>
+        <div className="h-0 md:h-48"></div>
         <Section id="bio" title="hi 👋" hideTitle className="mb-64">
           <p className="text-lg leading-relaxed text-strong dark:text-gray-300 mb-8">
             I'm a creative technologist passionate about building intuitive digital experiences that blend form and function. 
@@ -161,7 +161,7 @@ export default function AboutPage() {
         <Section id="tools" title="some tools i like using" hideTitle className="mb-64">
           <div className="mb-8">
             <p className="text-muted dark:text-gray-400 mb-4">
-              these tools have completely transformed how i approach coding and problem-solving:
+              general:
             </p>
             <ul className="space-y-2 text-lg ml-4">
               <li className="flex items-center gap-2">
@@ -177,7 +177,7 @@ export default function AboutPage() {
 
           <div>
             <p className="text-muted dark:text-gray-400 mb-4">
-              my go-to technologies for building modern web applications:
+              dev tools:
             </p>
             <ul className="space-y-2 text-lg ml-4">
               <li className="flex items-center gap-2">
