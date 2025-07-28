@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 
 const sections = [
   { id: 'bio', label: 'hi 👋' },
-  { id: 'projects', label: 'some stuff i\'ve been doing' },
-  { id: 'reading', label: 'some things i\'ve been reading' },
-  { id: 'tools', label: 'some tools i like using' }
+  { id: 'projects', label: 'some stuff I\'ve been doing' },
+  { id: 'reading', label: 'some things I\'ve been reading' },
+  { id: 'tools', label: 'some tools I like using' }
 ]
 
 export default function AboutPage() {
@@ -27,12 +27,12 @@ export default function AboutPage() {
       <div className="px-8 py-12">
         <div className="h-0 md:h-48"></div>
         <Section id="bio" title="hi 👋" hideTitle className="mb-64">
+          <p className="text-lg leading-relaxed text-strong dark:text-gray-300 mb-6">
+          In early 2025 I downloaded Cursor having never coded in my life. 48 hours later I was down an AI rabbit hole and haven't been back up since. These days I'm exploring different projects, reading everything I can find, and using writing to extend my thinking. I'm not sure where this leads or where I'm headed but I'll follow this path while I'm learning and building.
+          </p>
+          
           <p className="text-lg leading-relaxed text-strong dark:text-gray-300 mb-8">
-            I'm a creative technologist passionate about building intuitive digital experiences that blend form and function. 
-            With a background in both design and engineering, I enjoy exploring the intersection of aesthetics and technology. 
-            When I'm not coding, you'll find me experimenting with new frameworks, contributing to open-source projects, or 
-            diving deep into the latest developments in AI and machine learning. I believe in the power of technology to solve 
-            real-world problems and am constantly seeking new challenges that push the boundaries of what's possible.
+          Before this, I'd left a management consulting job at the end of 2023 and spent 2024 realising a lifelong goal of a year off travelling, spending half the year in India, 3 months in the EU, and some stops in Morocco, Turkey, UK, and Hong Kong.
           </p>
           
           <div className="flex gap-4 items-center">
@@ -71,7 +71,7 @@ export default function AboutPage() {
           </div>
         </Section>
 
-        <Section id="projects" title="some stuff i've been doing" hideTitle className="mb-64">
+        <Section id="projects" title="some stuff I've been doing" hideTitle className="mb-64">
           <div className="space-y-16">
             <CollapsibleSection title="vibe coding">
               <div className="grid gap-6">
@@ -89,7 +89,7 @@ export default function AboutPage() {
                       <ul className="text-muted dark:text-gray-400 space-y-1">
                         <li className="flex items-start gap-2">
                           <span className="text-muted">•</span>
-                          <span>i like daily puzzle apps. but i don't like ads. i had a cryptogram app with too many ads and decided to see how hard it would be to just make my own. so here we are.</span>
+                          <span>I like daily puzzle apps. but I don't like ads. I had a cryptogram app with too many ads and decided to see how hard it would be to just make my own. So here we are.</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <span className="text-muted">•</span>
@@ -100,11 +100,11 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <div className="p-6 rounded-lg transition-colors">
-                  <h4 className="text-lg font-medium mb-4">this website <span className="italic">- to see if i could do a personal web app</span></h4>
+                  <h4 className="text-lg font-medium mb-4">this website <span className="italic">- to see if I could do a personal web app</span></h4>
                   <ul className="text-muted dark:text-gray-400 space-y-1">
                     <li className="flex items-start gap-2">
                       <span className="text-muted">•</span>
-                      <span>i wanted to build my own web app from scratch, partly to see if I could, partly just to create</span>
+                      <span>I wanted to build my own web app from scratch, partly to see if I could, partly just to create</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-muted">•</span>
@@ -123,7 +123,7 @@ export default function AboutPage() {
           </div>
         </Section>
 
-        <Section id="reading" title="some things i've been reading" hideTitle className="mb-64">
+        <Section id="reading" title="some things I've been reading" hideTitle className="mb-64">
           <ul className="space-y-2 text-lg">
             <li className="flex items-center gap-2">
               <span className="text-muted">•</span>
@@ -158,39 +158,35 @@ export default function AboutPage() {
           </ul>
         </Section>
 
-        <Section id="tools" title="some tools i like using" hideTitle className="mb-64">
+        <Section id="tools" title="some tools I like using" hideTitle className="mb-64">
           <div className="mb-8">
             <p className="text-muted dark:text-gray-400 mb-4">
-              general:
+              mainstays:
             </p>
             <ul className="space-y-2 text-lg ml-4">
               <li className="flex items-center gap-2">
                 <span className="text-muted">•</span>
-                <span>Claude Code - AI-powered coding assistant for rapid development</span>
+                <span>coding environment: claude code, cursor, superwhisper (for voice)</span>
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-muted">•</span>
-                <span>Cursor - The AI-first code editor that understands context</span>
+                <span>knowledge management: heptabase, readwise, perplexity, dia</span>
               </li>
             </ul>
           </div>
 
           <div>
             <p className="text-muted dark:text-gray-400 mb-4">
-              dev tools:
+              exploring:
             </p>
             <ul className="space-y-2 text-lg ml-4">
               <li className="flex items-center gap-2">
                 <span className="text-muted">•</span>
-                <span>Next.js - React framework for production-ready applications</span>
+                <span>Lex - AI writing tool</span>
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-muted">•</span>
-                <span>Tailwind CSS - Utility-first CSS framework for rapid UI development</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-muted">•</span>
-                <span>Vercel - Deploy and scale modern web applications</span>
+                <span>Ash - AI therapy</span>
               </li>
             </ul>
           </div>
