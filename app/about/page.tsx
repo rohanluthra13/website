@@ -37,7 +37,7 @@ export default function AboutPage() {
           
           <div className="flex gap-4 items-center">
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://linkedin.com/in/rohan-l-2621059b"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative p-2 rounded-lg bg-[var(--color-background)] hover:bg-[var(--color-surface)] transition-all duration-200"
@@ -47,7 +47,7 @@ export default function AboutPage() {
             </a>
             
             <a
-              href="https://twitter.com/yourusername"
+              href="https://twitter.com/rohan_nz"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative p-2 rounded-lg bg-[var(--color-background)] hover:bg-[var(--color-surface)] transition-all duration-200"

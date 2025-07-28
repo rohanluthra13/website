@@ -54,28 +54,28 @@ export default function EmailLink({ email, className = '' }: EmailLinkProps) {
       </button>
 
       {isOpen && (
-        <div className="absolute -top-2 left-full ml-2 bg-[var(--color-surface)] rounded-lg z-10 min-w-[200px]">
+        <div className="absolute -top-2 left-full -ml-4 md:ml-0 bg-[var(--color-surface)] rounded-lg z-10 min-w-[150px] max-w-[160px] md:min-w-[180px] md:max-w-none">
           <div className="py-2">
             <button
               onClick={handleCopyEmail}
-              className="w-full px-4 py-2 text-left text-sm hover:bg-[var(--color-background)] transition-colors flex items-center gap-3 cursor-pointer group"
+              className="w-full px-4 py-2 text-left text-sm hover:bg-[var(--color-background)] transition-colors flex items-center gap-1 md:gap-2 cursor-pointer group"
               style={{ fontFamily: 'var(--font-family-reef)' }}
             >
-              <span className="text-[var(--color-text-muted)] group-hover:text-[var(--color-text-primary)] transition-colors">
+              <span className="text-[var(--color-text-muted)] group-hover:text-[var(--color-text-primary)] transition-colors flex-1">
                 {copySuccess ? 'copied!' : 'copy email address'}
               </span>
-              <Copy size={16} className="text-[var(--color-text-muted)] group-hover:text-[var(--color-text-primary)] transition-colors" />
+              <Copy size={16} className="text-[var(--color-text-muted)] group-hover:text-[var(--color-text-primary)] transition-colors flex-shrink-0" />
             </button>
             
             <a
               href={`mailto:${email}`}
-              className="w-full px-4 py-2 text-left text-sm hover:bg-[var(--color-background)] transition-colors flex items-center gap-3 block group"
+              className="w-full px-4 py-2 text-left text-sm hover:bg-[var(--color-background)] transition-colors flex items-center gap-1 md:gap-2 group"
               style={{ fontFamily: 'var(--font-family-reef)' }}
             >
-              <span className="text-[var(--color-text-muted)] group-hover:text-[var(--color-text-primary)] transition-colors">
+              <span className="text-[var(--color-text-muted)] group-hover:text-[var(--color-text-primary)] transition-colors flex-1">
                 send email
               </span>
-              <ExternalLink size={16} className="text-[var(--color-text-muted)] group-hover:text-[var(--color-text-primary)] transition-colors" />
+              <ExternalLink size={16} className="text-[var(--color-text-muted)] group-hover:text-[var(--color-text-primary)] transition-colors flex-shrink-0" />
             </a>
           </div>
         </div>
