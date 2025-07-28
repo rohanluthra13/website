@@ -159,28 +159,41 @@ export default function AboutPage() {
         </Section>
 
         <Section id="tools" title="some tools i like using" hideTitle className="mb-64">
-          <ul className="space-y-2 text-lg">
-            <li className="flex items-center gap-2">
-              <span className="text-muted">•</span>
-              <span>Claude Code - AI-powered coding assistant for rapid development</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="text-muted">•</span>
-              <span>Cursor - The AI-first code editor that understands context</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="text-muted">•</span>
-              <span>Next.js - React framework for production-ready applications</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="text-muted">•</span>
-              <span>Tailwind CSS - Utility-first CSS framework for rapid UI development</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="text-muted">•</span>
-              <span>Vercel - Deploy and scale modern web applications</span>
-            </li>
-          </ul>
+          <div className="mb-8">
+            <p className="text-muted dark:text-gray-400 mb-4">
+              these tools have completely transformed how i approach coding and problem-solving:
+            </p>
+            <ul className="space-y-2 text-lg ml-4">
+              <li className="flex items-center gap-2">
+                <span className="text-muted">•</span>
+                <span>Claude Code - AI-powered coding assistant for rapid development</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-muted">•</span>
+                <span>Cursor - The AI-first code editor that understands context</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <p className="text-muted dark:text-gray-400 mb-4">
+              my go-to technologies for building modern web applications:
+            </p>
+            <ul className="space-y-2 text-lg ml-4">
+              <li className="flex items-center gap-2">
+                <span className="text-muted">•</span>
+                <span>Next.js - React framework for production-ready applications</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-muted">•</span>
+                <span>Tailwind CSS - Utility-first CSS framework for rapid UI development</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-muted">•</span>
+                <span>Vercel - Deploy and scale modern web applications</span>
+              </li>
+            </ul>
+          </div>
         </Section>
         
         {/* Spacer to ensure last section can scroll high enough to be selected */}
