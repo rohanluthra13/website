@@ -164,7 +164,7 @@ export default function AboutPage() {
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-muted">•</span>
-                <span>Lenny's</span>
+                <span>Lenny&apos;s</span>
               </li>
             </ul>
           </div>
