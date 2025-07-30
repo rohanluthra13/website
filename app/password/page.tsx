@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 
 export default function PasswordPage() {
@@ -8,9 +8,34 @@ export default function PasswordPage() {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const [isFocused, setIsFocused] = useState(false)
+  const [typedText, setTypedText] = useState('')
   const router = useRouter()
   const searchParams = useSearchParams()
   const redirect = searchParams.get('redirect') || '/'
+  
+  const fullText = 'enter password'
+  
+  useEffect(() => {
+    if (!isFocused) {
+      let index = 0
+      setTypedText('')
+      
+      const typeInterval = setInterval(() => {
+        if (index <= fullText.length) {
+          setTypedText(fullText.slice(0, index))
+          index++
+        } else {
+          // Pause at full text, then reset
+          setTimeout(() => {
+            index = 0
+            setTypedText('')
+          }, 1000)
+        }
+      }, 150)
+      
+      return () => clearInterval(typeInterval)
+    }
+  }, [isFocused])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -48,7 +73,7 @@ export default function PasswordPage() {
           <div>
             <input
               type="password"
-              placeholder={isFocused ? "" : "enter password"}
+              placeholder={isFocused ? "" : typedText}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               onFocus={() => setIsFocused(true)}
