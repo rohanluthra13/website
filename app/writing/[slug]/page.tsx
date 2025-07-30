@@ -10,8 +10,9 @@ export async function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const { meta } = await getPostBySlug(params.slug)
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params
+  const { meta } = await getPostBySlug(resolvedParams.slug)
   
   return {
     title: meta.title,
@@ -19,9 +20,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
-export default async function PostPage({ params }: { params: { slug: string } }) {
+export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params
   try {
-    const { meta, content } = await getPostBySlug(params.slug)
+    const { meta, content } = await getPostBySlug(resolvedParams.slug)
     
     return (
       <ArticleLayout
@@ -32,7 +34,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
         <MDXRemote source={content} />
       </ArticleLayout>
     )
-  } catch (error) {
+  } catch {
     notFound()
   }
 }

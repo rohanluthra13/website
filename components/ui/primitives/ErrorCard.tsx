@@ -17,13 +17,6 @@ export interface ErrorCardProps {
 }
 
 export function ErrorCard({
-  title = 'Something went wrong',
-  message,
-  error,
-  showRetry = true,
-  showHome = true,
-  showBack = false,
-  onRetry,
   className = '',
   autoRedirect = true,
   redirectDelay = 3000

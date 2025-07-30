@@ -55,7 +55,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-4">What Doesn't Get Collected</h2>
+            <h2 className="text-2xl font-semibold mb-4">What Doesn&apos;t Get Collected</h2>
             <ul className="space-y-2 text-lg text-muted dark:text-gray-300">
               <li className="flex items-start gap-2">
                 <span className="text-muted">•</span>
@@ -100,7 +100,7 @@ export default function PrivacyPage() {
               </li>
             </ul>
             <p className="text-lg leading-relaxed text-muted dark:text-gray-300 mt-4">
-              I can't identify individual visitors - all data is aggregated and anonymous.
+              I can&apos;t identify individual visitors - all data is aggregated and anonymous.
             </p>
           </section>
 
@@ -121,9 +121,9 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-2xl font-semibold mb-4">Third-Party Services</h2>
             <p className="text-lg leading-relaxed text-muted dark:text-gray-300">
-              This site's analytics are provided by Vercel. You can read more about their practices in{' '}
+              This site&apos;s analytics are provided by Vercel. You can read more about their practices in{' '}
               <a href="https://vercel.com/legal/privacy-policy" className="text-link dark:text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">
-                Vercel's Privacy Policy
+                Vercel&apos;s Privacy Policy
               </a>.
             </p>
           </section>

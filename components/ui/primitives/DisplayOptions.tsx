@@ -27,7 +27,6 @@ const DisplayOptions = memo(function DisplayOptions({
   onContentWidthChange,
   font,
   onFontChange,
-  onClose
 }: DisplayOptionsProps) {
   const [showFontPicker, setShowFontPicker] = useState(false)
   const widthModes: WidthMode[] = ['narrower', 'narrow', 'normal', 'wide']
