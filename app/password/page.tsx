@@ -7,6 +7,7 @@ export default function PasswordPage() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+  const [isFocused, setIsFocused] = useState(false)
   const router = useRouter()
   const searchParams = useSearchParams()
   const redirect = searchParams.get('redirect') || '/'
@@ -40,35 +41,26 @@ export default function PasswordPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
-      <div className="w-full max-w-md bg-card border border-border rounded-lg p-8">
-        <h1 className="text-2xl font-bold text-center mb-6">Site Access</h1>
-        <p className="text-center text-muted-foreground mb-8">
-          This site is currently in development. Please enter the password to continue.
-        </p>
+      <div className="w-full max-w-md">
+        <h1 className="font-reef text-center mb-8">sorry this site is currently private</h1>
         
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit}>
           <div>
             <input
               type="password"
-              placeholder="Enter password"
+              placeholder={isFocused ? "" : "enter password"}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              onFocus={() => setIsFocused(true)}
+              onBlur={() => setIsFocused(false)}
               disabled={loading}
               autoFocus
-              className="w-full px-3 py-2 text-sm border border-input bg-background rounded-md focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full px-0 py-2 text-2xl text-center bg-transparent border-0 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
             />
             {error && (
               <p className="text-sm text-destructive mt-2">{error}</p>
             )}
           </div>
-          
-          <button 
-            type="submit" 
-            className="w-full px-3 py-2 text-sm font-medium text-primary-foreground bg-primary rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-            disabled={loading || !password}
-          >
-            {loading ? 'Verifying...' : 'Enter Site'}
-          </button>
         </form>
       </div>
     </div>
