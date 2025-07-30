@@ -83,7 +83,7 @@ export default function PasswordPage() {
               className="w-full px-0 py-2 text-2xl text-center bg-transparent border-0 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
             />
             {error && (
-              <p className="text-sm text-destructive mt-2">{error}</p>
+              <p className="text-sm mt-2 text-center lowercase">{error}</p>
             )}
           </div>
         </form>

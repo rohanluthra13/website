@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
       return response
     } else {
       return NextResponse.json(
-        { error: 'Invalid password' },
+        { error: 'nah thats wrong bro' },
         { status: 401 }
       )
     }
