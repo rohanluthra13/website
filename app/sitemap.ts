@@ -21,20 +21,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: 'https://www.rohanluthra.com/writing/building-with-ai',
+      url: 'https://www.rohanluthra.com/writing/dont-let-the-subtitles-stop-you',
       lastModified: new Date('2024-01-15'),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: 'https://www.rohanluthra.com/writing/future-of-web-development',
-      lastModified: new Date('2024-01-10'),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: 'https://www.rohanluthra.com/writing/lessons-from-side-projects',
-      lastModified: new Date('2024-01-05'),
       changeFrequency: 'monthly',
       priority: 0.6,
     },

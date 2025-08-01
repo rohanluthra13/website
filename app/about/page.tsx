@@ -67,7 +67,7 @@ export default function AboutPage() {
               <Github size={20} className="text-[var(--color-text-secondary)] group-hover:text-[var(--color-text-primary)] transition-colors" />
             </a>
             
-            <EmailLink email="your.email@example.com" />
+            <EmailLink email="rhluthra13@gmail.com" />
           </div>
         </Section>
 
