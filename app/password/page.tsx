@@ -67,7 +67,7 @@ function PasswordForm() {
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
       <div className="w-full max-w-md">
-        <h1 className="font-reef text-center mb-8">sorry this site is currently private</h1>
+        <h1 className="font-reef text-center mb-8">sorry, having an issue will be back ASAP</h1>
         
         <form onSubmit={handleSubmit}>
           <div>
