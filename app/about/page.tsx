@@ -178,11 +178,11 @@ export default function AboutPage() {
             <ul className="space-y-2 text-lg ml-4">
               <li className="flex items-center gap-2">
                 <span className="text-muted">•</span>
-                <span>coding environment: claude code, cursor, superwhisper (for voice)</span>
+                <span>coding environment: Claude Code, Cursor, SuperWhisper (for voice)</span>
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-muted">•</span>
-                <span>knowledge management: heptabase, readwise, perplexity, dia</span>
+                <span>knowledge management: Heptabase, Readwise, Perplexity, Dia</span>
               </li>
             </ul>
           </div>
